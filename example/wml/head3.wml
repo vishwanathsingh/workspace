@@ -1,0 +1,17 @@
+# use std/info.wml so we can use
+# the <info> tag
+
+#use wml::std::info
+
+<html>
+<head>
+
+<info style=comment domainname="opensourcewebbook.com"
+   copyright="2001 James Lee, Brent Ware http://www.opensourcewebbook.com/">
+
+<title>$(title)</title>
+</head>
+<body bgcolor=$(bgcolor:-"#ffffff")>
+<h3>Header Stuff</h3>
+File: <b>__FILE__</b><br>
+Line: <b>__LINE__</b>

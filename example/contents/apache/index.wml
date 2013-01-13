@@ -1,0 +1,46 @@
+#use wml::oswb title="Content | Apache" page="/contents/:Contents:Apache"
+
+<p><red>Apache</red><br></p>
+<p>Apache is the webserver of choice, and not just for Open Source bigots.
+As of this writing, Apache has more than 60 percent of the active site
+webserver market (see <link href="http://www.netcraft.com/survey/"
+text="www.netcraft.com/survey/">).  Because it is so widely used, it is
+widely tested, and when a bug is discovered or a new Web feature is
+implemented, bug fixes and updates are almost instantaneous.  Apache has a
+BSD-type Open Source license, making it attractive for both commercial and
+noncommercial applications.  Its modular architecture makes it feasible to
+tailor Apache to the environment you want to serve.  Examples of major
+sites using Apache are <link href="http://www.amazon.com/" text="Amazon">
+and <link href="http://www.yahoo.com" text="Yahoo"> - people who know how
+to handle Web traffic.</p>
+
+<red>Apache Links</red>
+<p><link href="http://www.apache.org/" text="Apache">
+<br><link href="http://httpd.apache.org/dist/httpd/" text="Apache
+Downloads">
+<br><link href="http://httpd.apache.org/ABOUT_APACHE.html" text="Apache
+Information">
+<br><link href="http://httpd.apache.org/" text="Apache
+Webserver">
+<br><link href="http://httpd.apache.org/docs/" text="Apache
+Webserver Documents">
+<br><link href="http://www.w3.org/MarkUp/" text="HTML W3C Home Page">
+<br><link href="http://www.netcraft.com/survey/" text="Netcraft Survey">
+<br><link href="$(OSWB)" text="This Book">
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p>
+<red>localhost</red><br>
+<link href="http://localhost/" text="localhost/"><br>
+<link href="$(OSWB)" text="www.opensourcewebbook.com/">
+</p>
+<p>
+<red>Private Directory - .htaccess</red><br>
+<link href="http://localhost/private/" text="localhost/private/"><br>
+<link href="$(OSWB)private/" text="www.opensourcewebbook.com/private/">
+</p>
+</divert>

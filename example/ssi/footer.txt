@@ -1,0 +1,6 @@
+<hr>
+<a href="http://www.opensourcewebbook.com/">http://www.opensourcewebbook.com/</a>
+<br>
+Date: <!--#echo var="DATE_LOCAL"-->
+</body>
+</html>

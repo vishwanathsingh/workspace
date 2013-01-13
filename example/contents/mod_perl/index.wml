@@ -1,0 +1,79 @@
+#use wml::oswb title="Content | mod_perl" page="/contents/:Contents:mod_perl"
+
+<p><red>mod_perl</red><br></p>
+<p>mod_perl is another, better way to create dynamic web pages.  It is
+faster and far more flexible than <link href="/contents/cgi/" text="CGI">
+and has the advantage of being based on Perl.  Thus it provides the dual
+benefit of building on the knowledge base you've gained by studying Perl,
+and taking advantage of the entire Perl base.
+</p>
+<p>
+mod_perl is a fully functional Perl interpreter embedded in the Apache Web
+server, making the Perl interpreter always available for CGI programs -
+there is no extra step to load Perl into memory.  Also, mod_perl is smart
+enough to cache CGI programs in memory, so if a CGI program is run
+multiple times, it is compiled only onece.  The result is a considerable
+improvement in speed.
+</p>
+<p>
+Speed is not the only advantage of mod_perl.  It also gives you increased
+power, flexibility, and the ability to customize Apache.  Because Perl is
+built into Apache, Perl is available to the server at all times.  So you
+can write Perl code that performs customized processing during any phase
+of Apache's processing, from the request phase to the authentication phase
+to the logging phase (to name just a few).
+</p>
+<p><red>mod_perl Links</red></p>
+<p>
+<link href="http://perl.apache.org/" text="mod_perl home page"><br>
+<link href="http://perl.apache.org/guide/" text="mod_perl guide"><br>
+<link href="http://www.modperl.com/" 
+      text="<i>Writing Apache Modules with Perl and C</i> web site">
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p>
+<red>Startup Configuration File</red><br>
+<link href="$(ROOT)/mod_perl/startup.pl" text="startup.pl"><br>
+</p>
+<p>
+<red>Apache::Registry</red><br>
+<link href="$(ROOT)/perl/hello.cgi"            text="hello.cgi"><br>
+<link href="$(ROOT)/mod_perl/hello.cgi"        text="hello.cgi contents"><br><br>
+<link href="$(ROOT)/mod_perl/hitit.pl"         text="hitit.pl contents"><br>
+<link href="$(ROOT)/mod_perl/hitit2.pl"        text="hitit2.pl contents"><br><br>
+<link href="$(ROOT)/perl/info4.cgi"            text="info4.cgi"><br>
+<link href="$(ROOT)/mod_perl/info4.cgi"        text="info4.cgi contents"><br><br>
+<link href="$(ROOT)/mod_perl/nameage.html"     text="nameage.html"><br>
+<link href="$(ROOT)/mod_perl/nameage.html.txt" text="nameage.html contents"><br>
+<link href="$(ROOT)/mod_perl/nameage.cgi"      text="nameage.cgi contents">
+</p>
+<p>
+<red>Pure mod_perl</red><br>
+<link href="$(ROOT)/helloworld" text="/helloworld"><br>
+<link href="$(ROOT)/mod_perl/HelloWorld.pm" text="HelloWorld.pm"><br><br>
+<link href="$(ROOT)/cgidata?name=John+Doe%21&abc=def&ghi=923" text="/cgidata"><br>
+<link href="$(ROOT)/mod_perl/HandleCGIData.pm" text="HandleCGIData.pm"><br><br>
+<link href="$(ROOT)/cgidata2?name=John+Doe&age=39" text="/cgidata2"><br>
+<link href="$(ROOT)/mod_perl/HandleCGIData2.pm" text="HandleCGIData2.pm"><br><br>
+<link href="$(ROOT)/pathinfo/hello/world" text="/pathinfo/hello/world"><br>
+<link href="$(ROOT)/mod_perl/PathInfo.pm" text="PathInfo.pm"><br><br>
+</p>
+<p>
+<red>mod_perl Project</red><br>
+<link href="$(ROOT)/mod_perl/book.pl" text="book.pl"><br><br>
+<link href="$(ROOT)/booklisting" text="/booklisting"><br>
+<link href="$(ROOT)/bookdetail?isbn=020177061X" text="/bookdetail"><br>
+<link href="$(ROOT)/mod_perl/BookListing.pm" text="BookListing.pm"><br>
+<link href="$(ROOT)/mod_perl/BookDetail.pm" text="BookDetail.pm"><br>
+<link href="$(ROOT)/mod_perl/BookMailLog.pm" text="BookMailLog.pm"><br><br>
+<link href="$(ROOT)/booklistingmysql" text="/booklistingmysql"><br>
+<link href="$(ROOT)/bookdetailmysql?isbn=020177061X" text="/bookdetailmysql"><br>
+<link href="$(ROOT)/mod_perl/BookListingMysql.pm" text="BookListingMysql.pm"><br>
+<link href="$(ROOT)/mod_perl/BookDetailMysql.pm" text="BookDetailMysql.pm"><br>
+<link href="$(ROOT)/mod_perl/BookMailLog.pm" text="BookMailLog.pm"><br><br>
+</p>
+</divert>

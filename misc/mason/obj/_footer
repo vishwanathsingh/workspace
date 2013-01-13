@@ -1,0 +1,38 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+ my $url   = 'http://www.opensourcewebbook.com/';
+ my $email = 'webmaster@opensourcewebbook.com';
+$_out->(' 
+<hr>
+Website: <a href="');
+$_out->( $url );
+$_out->('">');
+$_out->( $url );
+$_out->('</a>
+<br>
+Comments: <a href="mailto:');
+$_out->( $email );
+$_out->('">');
+$_out->( $email );
+$_out->('</a>
+</body>
+</html>
+');
+return undef;
+
+},
+'create_time'=>1035411823,
+'object_size'=>613,
+'parser_version'=>8
+)
+;

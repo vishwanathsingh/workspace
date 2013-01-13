@@ -1,0 +1,37 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+if (@_ % 2 == 0) { %ARGS = @_ } else { die "Odd number of parameters passed to component expecting name/value pairs" }
+my $title = (!exists $ARGS{'title'} ?  'Mason Component Example' : $ARGS{'title'});
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$_out->('<html>
+<head>
+<title>');
+$_out->( $title );
+$_out->('</title>
+</head>
+<body bgcolor="#ffffff">
+<i>This text is in the header.</i>
+<hr>
+
+');
+return undef;
+
+},
+'create_time'=>1035412026,
+'declared_args'=> {
+          '$title' => {
+                        'default' => ' \'Mason Component Example\''
+                      }
+        },
+'object_size'=>729,
+'parser_version'=>8
+)
+;

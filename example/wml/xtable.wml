@@ -1,0 +1,51 @@
+#use wml::std::page
+#use wml::fmt::xtable
+
+# get the standard page html
+<page>
+
+<h3>Table with a border</h3>
+
+<xtable border="1">
+  (1,*) valign=top
+  (*,1) align=left
+  (*,2|3) align=right
+  ((1,1))
+  Heading 1
+  ((1,2))
+  Heading 2
+  ((1,3))
+  Heading 3
+  (2,1)
+  one for the money
+  (2,2)
+  two for the show
+  (2,3)
+  three to get ready
+  (3,1)
+  four score and seven years
+  (3,2)
+  five easy pieces
+  (3,3)
+  six million dollar man
+</xtable>
+
+<hr>
+
+<h3>Table without a border and with a little space</h3>
+
+<xtable cellpadding="5" cellspacing="5">
+  (*,*) valign=top
+  (1,1)
+  Chapter 1: 
+  (1,2)
+  Introduction
+  (2,1)
+  Chapter 2: 
+  (2,2)
+  Linux - The Choice of a GNU Generation
+  (3,1)
+  Chapter 3: 
+  (3,2)
+  Apache
+</xtable>

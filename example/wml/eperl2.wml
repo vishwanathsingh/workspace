@@ -1,0 +1,13 @@
+<:
+    %websites = (
+        Google   => 'http://www.google.com/',
+        HLE      => 'http://www.hackinglinuxexposed.com/',
+        OSWB     => 'http://www.opensourcewebbook.com/',
+        Slashdot => 'http://www.slashdot.org/'
+    );
+
+
+    foreach $site (sort keys %websites) {
+        print "<a href=\"$websites{$site}\">$site</a><br>\n";
+    }
+:>

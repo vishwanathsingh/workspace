@@ -1,0 +1,59 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+ my $client = $ENV{REMOTE_ADDR};
+$_out->('
+<html>
+<head>
+<title>Percent Lines with Mason</title>
+</head>
+<body bgcolor="#ffffff">
+
+Hello ');
+$_out->( $client );
+$_out->('!
+
+<hr>
+
+');
+ if ($client =~ /127\.0\.0\.1/) {
+$_out->('We are called from localhost.
+');
+ } else {
+$_out->('We are called from elsewhere.
+');
+ }
+$_out->('
+<hr>
+
+');
+ my $i = 0;
+ while ($i < 10) {
+$_out->('<tt>$i == ');
+$_out->( $i );
+$_out->('</tt>
+<br>
+');
+    $i++; 
+ }
+$_out->('
+</body>
+</html>
+');
+return undef;
+
+},
+'create_time'=>1035411695,
+'object_size'=>765,
+'parser_version'=>8
+)
+;

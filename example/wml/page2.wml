@@ -1,0 +1,5 @@
+#use wml::std::page
+
+<page title="Page 2 in WML" bgcolor="#ffffcc">
+
+hello, <b>world!</b>

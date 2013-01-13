@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Form to Demonstrate %fdat</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>A Form to Demonstrate %fdat</h1>
+
+<form action="/embperl/fdat2.html" method="post">
+Name:  <input type="text" name="name">
+<br>
+Age:   <input type="text" name="age">
+<br>
+Phone: <input type="text" name="phone">
+<br>
+<input type="submit">
+</form>
+
+</body>
+</html>

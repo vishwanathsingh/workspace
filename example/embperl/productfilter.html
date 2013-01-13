@@ -1,0 +1,324 @@
+[-
+    use DBI;
+
+    # connect to the database - the !! checks to see if we
+    # have a $dbh and if not, then we connect
+    $dbh = $dbh || DBI->connect('DBI:mysql:mysql_project','apache','');
+
+    # grab the posted data
+    $posted_city         = $fdat{city}         || '';
+    $posted_manufacturer = $fdat{manufacturer} || '';
+    $posted_category     = $fdat{category}     || '';
+
+    # if any of the posted form data is `Select One' or '------'
+    # then set the posted form data variable to empty string
+    # since the user did not select one of the options
+    $posted_city         = '' if $posted_city eq 'Select One'
+                                 or $posted_city eq '------';
+    $posted_manufacturer = '' if $posted_manufacturer eq 'Select One'
+                                 or $posted_manufacturer eq '------';
+    $posted_category     = '' if $posted_category eq 'Select One'
+                                 or $posted_category eq '------';
+
+    # make sure that the posted data contains the data we want
+    # (no nasty characters) and the length we expect - if the
+    # data looks bad, set the variable to empty string
+    unless ($posted_city =~ /^[\w '\.]+$/) {
+        $posted_city = '';
+    }
+    if (length($posted_city) > 60) {
+        $posted_city = '';
+    }
+    unless ($posted_manufacturer =~ /^[\w '\.]+$/) {
+        $posted_manufacturer = '';
+    }
+    if (length($posted_manufacturer) > 60) {
+        $posted_manufacturer = '';
+    }
+    unless ($posted_category =~ /^[\w '\.]+$/) {
+        $posted_category = '';
+    }
+    if (length($posted_category) > 60) {
+        $posted_category = '';
+    }
+
+    # $sql_cond will contain the conditions that we will use for
+    # our SQL query - if we received any posted data, then we need
+    # to append to $sql_cond the appropariate SQL text and we will
+    # add the value of the variable to our array of execute()
+    # arguments
+    $sql_cond = '';
+    @execute_args = ();
+ 
+    if ($posted_city or $posted_manufacturer or $posted_category) {
+        if ($posted_city) {
+            $sql_cond .= ' AND manufacturers.city = ?';
+            push @execute_args, $posted_city;
+        }
+        if ($posted_manufacturer) {
+            $sql_cond .= 'AND manufacturers.name = ?';
+            push @execute_args, $posted_manufacturer;
+        }
+        if ($posted_category) {
+            $sql_cond .= 'AND products.category = ?';
+            push @execute_args, $posted_category;
+        }
+    }
+-]
+<html>
+<head>
+<title>Open Source Web Book - Product Filter Embperl Style</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#333333" leftmargin="0" topmargin="0"
+marginwidth="0" marginheight="0" link="#333333">
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#000000" colspan="3" align="center"><font color="#FFFFFF">
+www.opensourcewebbook.com
+</font></td>
+</tr>
+<tr>
+<td bgcolor="#999966" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td width="15">&nbsp;</td>
+<td width="180">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="570"><font color="#FF0000"><b>Page Path -</b></font> <font
+color="#333333">Chapter 9:</font> <a href="/contents/embperl/"><font
+color="#999966"><b>Embperl</b></font></a> &gt; <a
+href="/embperl/productfilter.html"><font
+color="#999966"><b>/embperl/productfilter.html</b></font></a>
+</td>
+<td width="195"> 
+<div align="center"><img src="/icons/logo.gif" width="177"
+height="51"></div>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="168" valign="top">
+
+
+<table width="164" cellspacing="3" cellpadding="0">
+<tr><td><a href="/"><font color="#999966"><b>Home</b></font></a></td></tr>
+<tr><td><a href="/about/"><font 
+color="#999966"><b>About</b></font></a></td></tr>
+<tr><td><a href="/foreword/"><font
+color="#999966"><b>Foreword</b></font></a></td></tr>
+<tr><td><a href="/reviews/"><font
+color="#999966"><b>Reviews</b></font></a></td></tr>
+<tr><td><a href="/authors/"><font
+color="#999966"><b>Authors</b></font></a></td></tr>
+<tr><td><a href="/purchase/"><font
+color="#999966"><b>Purchase</b></font></a></td></tr>
+<tr><td><a href="/errata/"><font
+color="#999966"><b>Errata</b></font></a></td></tr>
+<tr><td><a href="/sourcecode/"><font
+color="#999966"><b>Sourcecode</b></font></a></td></tr>
+<tr><td><a href="/resources/"><font
+color="#999966"><b>Resources</b></font></a></td></tr>
+<tr><td><a href="/tools/"><font
+color="#999966"><b>Tools</b></font></a></td></tr>
+<tr><td><a href="/contents/"><font
+color="#999966"><b>Contents</b></font></a></td></tr>
+<tr><td>
+  <table width="130" cellspacing="3" cellpadding="0" align="right">
+    <tr><td><a href="/contents/linux/"><font
+color="#999966"><b>Linux</b></font></a></td></tr>
+    <tr><td><a href="/contents/apache/"><font
+color="#999966"><b>Apache</b></font></a></td></tr>
+    <tr><td><a href="/contents/wml/"><font
+color="#999966"><b>WML</b></font></a></td></tr>
+    <tr><td><a href="/contents/perl/"><font
+color="#999966"><b>Perl</b></font></a></td></tr>
+    <tr><td><a href="/contents/cgi/"><font color="#999966"><b>CGI and
+SSI</b></font></a></td></tr>
+    <tr><td><a href="/contents/mysql/"><font
+color="#999966"><b>MySQL</b></font></a></td></tr>
+    <tr><td><a href="/contents/mod_perl/"><font
+color="#999966"><b>mod_perl</b></font></a></td></tr>
+    <tr><td><a href="/contents/embperl/"><font
+color="#999966"><b>Embperl</b></font></a></td></tr>
+    <tr><td><a href="/contents/mason/"><font
+color="#999966"><b>Mason</b></font></a></td></tr>
+    <tr><td><a href="/contents/php/"><font
+color="#999966"><b>PHP</b></font></a></td></tr>
+  </table>
+</td></tr>
+</table>
+</td>
+<td width="10">&nbsp;</td>
+<td width="2" bgcolor="#999966">&nbsp;</td>
+<td width="20">&nbsp;</td>
+<td width="500" valign="top">
+<p><font color="#FF0000"><b>Product Filter Built with 
+Embperl</b></font><br></p>
+<p>This is the product filter for the MySQL project implemented 
+with Embperl.
+Please select from the category buttons to filter the
+products displayed.
+<hr>
+<p></p>
+<form action="/embperl/productfilter.html" method="post">
+  <table cellspacing="10" cellpadding="10">
+    <tr>
+      <td>Manufacturer City<br>
+        <select name="city">
+
+[# for each of the posted variables, generate the select #]
+[# box HTML - this will include an SQL query to get the  #]
+[# data out of our database                              #]
+
+[$ if ($posted_city eq '') $]
+          <option selected>Select One</option>
+[$ else $]
+          <option>Select One</option>
+[$ endif $]
+          <option>------</option>
+
+[- 
+    $sth = $dbh->prepare('SELECT DISTINCT city FROM manufacturers 
+                          ORDER BY city');
+    $sth->execute();
+-]
+
+[$ while (($city) = $sth->fetchrow()) $]
+  [$ if ($posted_city eq $city) $]
+          <option value="[+ $city +]" selected>[+ $city +]</option>
+  [$ else $]
+          <option>[+ $city +]</option>
+  [$ endif $]
+[$ endwhile $]
+
+        </select>
+      </td>
+
+      <td>Manufacturer<br>
+        <select name="manufacturer">
+
+[$ if ($posted_manufacturer eq '') $]
+          <option selected>Select One</option>
+[$ else $]
+          <option>Select One</option>
+[$ endif $]
+
+          <option>------</option>
+
+[-
+    $sth = $dbh->prepare('SELECT DISTINCT name FROM manufacturers 
+                          ORDER BY name');
+    $sth->execute();
+-]
+ 
+[$ while (($name) = $sth->fetchrow()) $]
+  [$ if ($posted_manufacturer eq $name) $]
+          <option value="[+ $name +]" selected>[+ $name +]</option>
+  [$ else $]
+          <option>[+ $name +]</option>
+  [$ endif $]
+[$ endwhile $]
+
+        </select>
+      </td>
+
+      <td>Category<br>
+        <select name="category">
+
+[$ if ($posted_category eq '') $]
+          <option selected>Select One</option>
+[$ else $]
+          <option>Select One</option>
+[$ endif $]
+
+          <option>------</option>
+[-
+    $sth = $dbh->prepare('SELECT DISTINCT category FROM products ORDER BY
+category');
+    $sth->execute();
+-]
+ 
+[$ while (($category) = $sth->fetchrow()) $]
+  [$ if ($posted_category eq $category) $]
+          <option value="[+ $category +]" selected>[+ $category +]</option>
+  [$ else $]
+          <option>[+ $category +]</option>
+  [$ endif $]
+[$ endwhile $]
+
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center"><input type="submit" value="Filter
+Now"></td>
+    </tr>
+  </table>
+</form>
+<table width="490" border="0" cellspacing="0" cellpadding="3">
+  <tr align="left">
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <th colspan="3"><hr></td>
+  </tr>
+
+
+[# now build the table - this query will include any conditions #]
+[# that we have based on the posted data from the filter        #]
+[# options - we will then loop through the results, building    #]
+[# the rows of our table                                        #]
+[-
+    $sth = $dbh->prepare('SELECT products.prod_id,products.name,
+                                 products.category,products.price
+                          FROM manufacturers, products
+                          WHERE manufacturers.man_id = products.man_id '
+                          . $sql_cond .
+                          'ORDER BY products.category, products.name');
+
+    $sth->execute(@execute_args);
+
+    $i = 0;
+-]
+
+[$ while (($prod_id,$name,$category,$price) = $sth->fetchrow()) $]
+  [- 
+      if ($i % 2 == 0) {
+          $bgcolor = "#ffffff";
+      } else {
+          $bgcolor = "#cccccc";
+      }
+      $i++ 
+  -]
+  <tr bgcolor="[+ $bgcolor +]">
+    <td><a href="/embperl/productdetail.html?prod_id=[+ $prod_id +]"><font
+color="#999966"><b>[+ $name +]</b></font></a></td>
+    <td>[+ $category +]</td>
+    <td>$[+ $price +]</td>
+  </tr>
+
+[$ endwhile $]
+
+</table>
+</td>
+<td width="65">&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,8 @@
+AuthName "Open Source Web Development with LAMP"
+AuthType Basic
+AuthUserFile /var/www/admin/pw.db
+AuthGroupFile /dev/null
+ 
+<LIMIT GET>
+require user experience
+</LIMIT>

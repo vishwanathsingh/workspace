@@ -1,0 +1,18 @@
+#use wml::std::page 
+#use wml::std::toc style=pre
+
+<page title="toc example">
+
+Table of Contents:
+
+<toc>
+
+<hr>
+
+<h1>Chapter 1</h1>
+<h2>Section 1</h2>
+<h3>Subsection 1</h3>
+<h2>Section 2</h2>
+<h1>Chapter 2</h1>
+<h2>Section 1</h2>
+<h2>Section 2</h2>

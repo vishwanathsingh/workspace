@@ -1,0 +1,13 @@
+[-
+    $url = 'http://www.opensourcewebbook.com/';
+-]
+
+<html>
+<head>
+<title>The World of Open Source Web Development</title>
+</head>
+<body bgcolor="#ffffff">
+The fun begins here:
+<a href="[+ $url +]">[+ $url +]</a>
+</body>
+</html>

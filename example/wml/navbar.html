@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>navbar example</title>
+<script type="text/javascript" language="JavaScript">
+<!-- Hiding the code
+function nb_imgNormal(imgName) {
+    if (document.images) {
+        document[imgName].src = eval(imgName + '_n.src');
+        self.status = '';
+    }
+}
+function nb_imgSelect(imgName) {
+    if (document.images) {
+        document[imgName].src = eval(imgName + '_s.src');
+        self.status = '';
+    }
+}
+function nb_imgOver(imgName, nohints, descript) {
+    if (document.images) {
+        document[imgName].src = eval(imgName + '_o.src');
+        if (! nohints) self.status = descript;
+    }
+}
+// done hiding -->
+</script>
+</head>
+<body bgcolor="#ff0000" text="#ffffff">
+hello, world
+<hr>
+<script type="text/javascript" language="JavaScript">
+<!-- Hiding the code
+if (document.images) {
+    nb_img1_about_n = new Image();
+    nb_img1_about_n.src = '/icons/nv_about.gif';
+    nb_img1_about_o = new Image();
+    nb_img1_about_o.src = '/icons/nv_about_on.gif';
+    nb_img1_contents_n = new Image();
+    nb_img1_contents_n.src = '/icons/nv_contents.gif';
+    nb_img1_contents_o = new Image();
+    nb_img1_contents_o.src = '/icons/nv_contents_on.gif';
+    nb_img1_foreword_n = new Image();
+    nb_img1_foreword_n.src = '/icons/nv_foreword.gif';
+    nb_img1_foreword_o = new Image();
+    nb_img1_foreword_o.src = '/icons/nv_foreword_on.gif';
+    nb_img1_reviews_n = new Image();
+    nb_img1_reviews_n.src = '/icons/nv_reviews.gif';
+    nb_img1_reviews_o = new Image();
+    nb_img1_reviews_o.src = '/icons/nv_reviews_on.gif';
+    nb_img1_authors_n = new Image();
+    nb_img1_authors_n.src = '/icons/nv_authors.gif';
+    nb_img1_authors_o = new Image();
+    nb_img1_authors_o.src = '/icons/nv_authors_on.gif';
+}
+// done hiding -->
+</script>
+This is the Header<br>
+<a href="/about/" onmouseover="nb_imgOver('nb_img1_about', 0, 'About'); return true" onmouseout="nb_imgNormal('nb_img1_about'); return true" onfocus="nb_imgOver('nb_img1_about', 0, 'About'); return true" onblur="nb_imgNormal('nb_img1_about'); return true"><img name="nb_img1_about" src="/icons/nv_about.gif" alt="About" border="0"></a><br><a href="/contents/" onmouseover="nb_imgOver('nb_img1_contents', 0, 'Contents'); return true" onmouseout="nb_imgNormal('nb_img1_contents'); return true" onfocus="nb_imgOver('nb_img1_contents', 0, 'Contents'); return true" onblur="nb_imgNormal('nb_img1_contents'); return true"><img name="nb_img1_contents" src="/icons/nv_contents.gif" alt="Contents" border="0"></a><br><a href="/foreword/" onmouseover="nb_imgOver('nb_img1_foreword', 0, 'Foreword'); return true" onmouseout="nb_imgNormal('nb_img1_foreword'); return true" onfocus="nb_imgOver('nb_img1_foreword', 0, 'Foreword'); return true" onblur="nb_imgNormal('nb_img1_foreword'); return true"><img name="nb_img1_foreword" src="/icons/nv_foreword.gif" alt="Foreword" border="0"></a><br><a href="/reviews/" onmouseover="nb_imgOver('nb_img1_reviews', 0, 'Reviews'); return true" onmouseout="nb_imgNormal('nb_img1_reviews'); return true" onfocus="nb_imgOver('nb_img1_reviews', 0, 'Reviews'); return true" onblur="nb_imgNormal('nb_img1_reviews'); return true"><img name="nb_img1_reviews" src="/icons/nv_reviews.gif" alt="Reviews" border="0"></a><br><a href="/authors/" onmouseover="nb_imgOver('nb_img1_authors', 0, 'Authors'); return true" onmouseout="nb_imgNormal('nb_img1_authors'); return true" onfocus="nb_imgOver('nb_img1_authors', 0, 'Authors'); return true" onblur="nb_imgNormal('nb_img1_authors'); return true"><img name="nb_img1_authors" src="/icons/nv_authors.gif" alt="Authors" border="0"></a><br>This is the Footer
+<hr>
+</body>
+</html>

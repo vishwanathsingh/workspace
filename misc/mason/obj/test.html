@@ -1,0 +1,38 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+  my $name = 'John Doe';
+$_out->('
+<html>
+<head>
+<title>Mason Example</title>
+</head>
+<body bgcolor="#ffffff">
+
+Hello, ');
+$_out->( $name );
+$_out->('!
+<br>2 + 3 = ');
+$_out->( 2 + 3 );
+$_out->('
+
+</body>
+</html>
+');
+return undef;
+
+},
+'create_time'=>1035411682,
+'object_size'=>509,
+'parser_version'=>8
+)
+;

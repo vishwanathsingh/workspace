@@ -1,0 +1,83 @@
+#use wml::oswb title="Content | Perl" page="/contents/:Contents:Perl"
+
+<p><red>Perl</red><br></p>
+<p>Perl has become a popular all-purpose programming language because of
+its power and ease of use.  Once you have mastered the language rules, you
+can do a lot with a little.  One of the mottoes of Perl is <i>Perl Makes
+Easy Tasks and Easy and Hard Tasks Possible</i>.  Another is <i>There's
+More Than One Way To Do It</i> - TMTOWTDI, pronounced "Tim-Toe-Di."</p>
+<p>Perl originated as a text processing language (read about the history
+<link href="http://www.perl.org/press/history.html" text="here"> and <link
+href="http://history.perl.org/" text="here">).  <link
+href="http://www.wall.org/~larry/" text="Larry Wall">, the creator,
+needed a language to manage and manipulate a database of text files.  He
+designed Perl to be a language with built-in text processing by
+incorporating regular expressions and providing a number of text
+processing functions.  There are and have been many other text processing
+languages: REXX, awk, sed, etc.  But Perl has struck a chord, and not only
+with Open Source developers - it has been ported to all major operating
+systems and many minor ones.  It has been (lovingly) referred to as the
+duct tape that holds the Internet together.  One of the happy results of
+the spread of Perl is its portability; if created properly, Perl scripts
+will run on many operating systems with only minor changes, if any.</p>
+<p>The name Perl is an uncapitalized acronym for Practical Extraction and
+Report Language, or Pathologically Eclectic Rubbish Lister - TMTOWTDI.<p>
+
+<red>Perl Links</red>
+<p>
+<link href="http://www.perl.com/" text="Perl home page">
+<br><link href="http://www.perl.com/CPAN/src/stable.tar.gz" text="Latest
+Perl source">
+<br><link href="http://www.perl.org/" text="Perl advocacy">
+<br><link href="http://www.pm.org/" text="Perl mongers">
+<br><link href="http://www.cpan.org/" text="Comprehensive Perl Archive
+Network (CPAN)">
+<br><link href="http://use.perl.org/" text="Perl news">
+<br><link href="http://www.tpj.com/" text="The Perl Journal">
+<br><link href="http://www.theperlreview.com/" text="The Perl Review">
+<br><link href="http://www.perldoc.com/" text="Perldoc.com">
+
+
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p>
+<link href="$(ROOT)/perlexamples/hello.pl"        text="hello.pl"><br>
+<link href="$(ROOT)/perlexamples/simpleadd.pl"    text="simpleadd.pl"><br>
+<link href="$(ROOT)/perlexamples/array1.pl"       text="array1.pl"><br>
+<link href="$(ROOT)/perlexamples/array2.pl"       text="array2.pl"><br>
+<link href="$(ROOT)/perlexamples/array3.pl"       text="array3.pl"><br>
+<link href="$(ROOT)/perlexamples/pushpop.pl"      text="pushpop.pl"><br>
+<link href="$(ROOT)/perlexamples/unshiftshift.pl" text="unshiftshift.pl"><br>
+<link href="$(ROOT)/perlexamples/sortreverse.pl"  text="sortreverse.pl"><br>
+<link href="$(ROOT)/perlexamples/hash1.pl"        text="hash1.pl"><br>
+<link href="$(ROOT)/perlexamples/hash2.pl"        text="hash2.pl"><br>
+<link href="$(ROOT)/perlexamples/hash3.pl"        text="hash3.pl"><br>
+<link href="$(ROOT)/perlexamples/operators.pl"    text="operators.pl"><br>
+<link href="$(ROOT)/perlexamples/string.pl"       text="string.pl"><br>
+<link href="$(ROOT)/perlexamples/increment.pl"    text="increment.pl"><br>
+<link href="$(ROOT)/perlexamples/whilearray.pl"   text="whilearray.pl"><br>
+<link href="$(ROOT)/perlexamples/whilehash.pl"    text="whilehash.pl"><br>
+<link href="$(ROOT)/perlexamples/foreach1.pl"     text="foreach1.pl"><br>
+<link href="$(ROOT)/perlexamples/foreach2.pl"     text="foreach2.pl"><br>
+<link href="$(ROOT)/perlexamples/memory1.pl"      text="memory1.pl"><br>
+<link href="$(ROOT)/perlexamples/memory2.pl"      text="memory2.pl"><br>
+<link href="$(ROOT)/perlexamples/function1.pl"    text="function1.pl"><br>
+<link href="$(ROOT)/perlexamples/function2.pl"    text="function2.pl"><br>
+<link href="$(ROOT)/perlexamples/return1.pl"      text="return1.pl"><br>
+<link href="$(ROOT)/perlexamples/return2.pl"      text="return2.pl"><br>
+<link href="$(ROOT)/perlexamples/function3.pl"    text="function3.pl"><br>
+<link href="$(ROOT)/perlexamples/printargs1.pl"   text="printargs1.pl"><br>
+<link href="$(ROOT)/perlexamples/printargs2.pl"   text="printargs2.pl"><br>
+<link href="$(ROOT)/perlexamples/function4.pl"    text="function4.pl"><br>
+<link href="$(ROOT)/perlexamples/stdin1.pl"       text="stdin1.pl"><br>
+<link href="$(ROOT)/perlexamples/stdin2.pl"       text="stdin2.pl"><br>
+<link href="$(ROOT)/perlexamples/stdin3.pl"       text="stdin3.pl"><br>
+<link href="$(ROOT)/perlexamples/file1.pl"        text="file1.pl"><br>
+<link href="$(ROOT)/perlexamples/file2.pl"        text="file2.pl"><br>
+<link href="$(ROOT)/perlexamples/file3.pl"        text="file3.pl"><br>
+</p>
+</divert>

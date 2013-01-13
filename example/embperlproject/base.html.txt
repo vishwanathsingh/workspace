@@ -1,0 +1,19 @@
+<html> 
+<head>
+<title>A Simple EmbperlObject Example</title>
+</head> 
+<body bgcolor="#ffffff">
+<h1>This is a simple EmbperlObject Example</h1>
+This text, and the following horizontal rule, is in
+base.html.
+<hr>
+ 
+[# the following will include the contents of the     #]
+[# HTML file requested - `*' means the requested file #]
+[- Execute ('*') -]
+ 
+<hr>
+The above horizontal rule, and this text, is in
+base.html.
+</body> 
+</html>

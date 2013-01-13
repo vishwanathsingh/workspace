@@ -1,0 +1,28 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$_out->('<html>
+<head>
+<title>Mason Component Example</title>
+</head>
+<body bgcolor="#ffffff">
+<i>This text is in the header.</i>
+<hr>
+');
+return undef;
+
+},
+'create_time'=>1035411823,
+'object_size'=>431,
+'parser_version'=>8
+)
+;

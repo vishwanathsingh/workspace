@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Bread Crumb Example</title>
+</head>
+<body bgcolor="#ffffff">
+<:
+    # grab the page information passed in
+    my $page_string = "$(page)";
+
+    # if the page info is not blank, process it
+    if ($page_string ne "") {
+
+        # first, print some red text
+        print "<font color=\"#FF0000\"><b>Page Path - </b></font>";
+
+        # split the line on the colon in case we are passing more
+        # than one piece of information as in:
+        #   href1:text1:href2:text2:final text
+        # loop through, building the link
+        my @page = split(/:/, $page_string);
+        while (@page > 1) {
+            my $href = "$(ROOT)" . shift(@page);
+            my $text = shift(@page);
+            print "<a href=\"$href\"><font color=\"#999966\">
+                        <b>$text</b></font></a> - ";
+        }
+        print "$page[0]";
+    } else {
+        print "No bread crumbs!\n";
+    }
+
+:>
+</body>
+</html>

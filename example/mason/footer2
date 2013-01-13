@@ -1,0 +1,11 @@
+<hr>
+Website: <a href="<% $url %>"><% $url %></a>
+<br>
+Comments: <a href="mailto:<% $email %>"><% $email %></a>
+</body>
+</html>
+
+<%args>
+$url   => 'http://www.onsight.com/'
+$email => 'webmaster@onsight.com'
+</%args>

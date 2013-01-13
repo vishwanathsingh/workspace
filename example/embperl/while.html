@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Embperl while</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Environment Variables</h1>
+
+[- 
+    # intiailize $i, the loop control variable
+    # used within the while loop below
+    $i = 0; 
+
+    # grab the keys and sort them, storing them
+    # in @a
+    @k = sort(keys(%ENV));
+-]
+
+[# loop through @a, printing the variable names #]
+[# and their values                             #]
+[$ while ($i < $#k) $]
+  [+ $k[$i] +] = [+ $ENV{$k[$i]} +]<br>
+  [- $i++ -]
+[$ endwhile $]
+
+</body>
+</html>

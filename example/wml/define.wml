@@ -1,0 +1,30 @@
+<define-tag red whitespace=delete endtag=required>
+<font color="#FF0000">%body</font>
+</define-tag>
+<define-tag lamp whitespace=delete>
+Open Source Web Development with LAMP
+</define-tag>
+<define-tag link whitespace=delete>
+<preserve href>
+<preserve text>
+<set-var %attributes>
+<a href="<get-var href>"><font color="#999966"><b><get-var 
+text></b></font></a>
+<restore href>
+<restore text>
+</define-tag>
+
+
+<html>
+<body bgcolor="#ffffff">
+<red>Hello, world!</red>
+<hr>
+You are reading <lamp>!
+<hr>
+<link href="http://www.perl.com/"
+      text="Perl is cool">
+<hr>
+<link href="http://thewml.org/"
+      text="WML Home Page"/>
+</body>
+</html>

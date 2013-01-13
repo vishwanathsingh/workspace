@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Using $row and $col</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Using a <tt>foreach</tt></h1>
+
+<table border="1">
+
+[# loop through the sorted keys of %ENV, printing #]
+[# the keys and their values                      #]
+
+[$ foreach $key (sort keys %ENV) $]
+  <tr><th> [+ $key +] </th><td> [+ $ENV{$key} +] </td></tr>
+[$ endforeach $]
+
+</table>
+
+<h1>Using the Magical <tt>$row</tt> and <tt>$col</tt></h1>
+
+[# grab the sorted keys of %ENV, put them in @k     #]
+[# then, define one row in the table, and $row will #]
+[# magically take on the values of the indices of @k#]
+
+[- @k = sort keys %ENV -]
+
+<table border="1">
+  <tr><th> [+ $k[$row] +] </th><td> [+ $ENV{$k[$row]} +] </td></tr>
+</table>
+
+</body>
+</html>

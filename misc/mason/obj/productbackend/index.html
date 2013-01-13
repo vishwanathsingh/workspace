@@ -1,0 +1,37 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$m->comp('_top', title => 'Project',
+         breadcrumb => '/contents/:Contents:/contents/mason/:Mason:Product Backend');
+$_out->('
+');
+$m->comp('_leftrail');
+$_out->('
+
+<p><font color="#FF0000"><b>Product Backend</b></font><br></p>
+
+');
+$m->comp('_select_form');
+$_out->('
+
+');
+$m->comp('_bottom');
+$_out->('
+');
+return undef;
+
+},
+'create_time'=>1035412206,
+'object_size'=>607,
+'parser_version'=>8
+)
+;

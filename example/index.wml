@@ -1,0 +1,35 @@
+#use wml::oswb title="Home"
+
+
+<p><red><i>$(BOOK_TITLE)</i></red><br></p>
+<p>Welcome to www.opensourcewebbook.com, the companion
+website to the upcoming book <b><i>$(BOOK_TITLE)</i></b>.
+</p>
+<p>
+LAMP is an acronym for Linux / Apache / MySQL / (Perl | Python | PHP), the
+basic building blocks of developing websites with Open Source
+technologies.
+</p>
+<p>
+<link href="/contents/linux/" text="Linux"> is the operating system it all 
+runs on.  <link href="/contents/apache/" text="Apache"> is by far the 
+most popular web server used on the internet today.  <link 
+href="/contents/mysql/" text="MySQL"> is a powerful, easy to use SQL server 
+that is very popular in web servers.  <link href="/contents/perl/"
+text="Perl"> and <link href="/contents/php/" text="PHP"> are two programming 
+languages used to create dynamic websites, allowing the web developer to 
+connect to a MySQL server and deliver up dynamic content.
+</p>
+<p>
+In <b><i>$(BOOK_TITLE)</i></b>, we take a practical approach in discussing these
+topics, combining in a single book the most important aspects of each
+topic - enough information to evaluate whether or not LAMP is for you, and
+if so, how to hit the ground running.
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>NEWS:</red>
+</p>
+<p>Coming soon...</p>
+</divert>

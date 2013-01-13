@@ -1,0 +1,5 @@
+#use wml::std::page
+
+<page>
+
+hello, <b>world!</b>

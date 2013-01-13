@@ -1,0 +1,54 @@
+#use wml::oswb title="Content | SSI" page="/contents/:Contents:SSI"
+
+<p><red>Server Side Includes</red><br></p>
+<p>Server Side Includes (SSI) provides a simple way to <i>embed</i>
+executable code into a web page.  The advantages of SSI are that it is
+simple to use and easy to learn, and sometimes simplicity is its own
+reward.  The main drawback of SSI is that because of its simplicity, it is
+limited in what it can do.  
+<link href="http://www.amazon.com/exec/obidos/ASIN/0465026567/" text="Godel"> 
+raises his head again.
+</p>
+<p>
+SSI is not <link href="/contents/cgi/" text="CGI"> - that is, it is not a
+program that is executed to generate HTML text, so one needn't be a Perl
+hacker to use it. Rather, SSi is a collection of directives that can be
+embedded in an HTML file and processed by Apache.
+</p>
+<p><red>SSI Links</red></p>
+<p>
+<link href="http://httpd.apache.org/docs/howto/ssi.html" 
+      text="The official Apache SSI page"><br>
+<link href="http://www.bignosebird.com/ssi.shtml"
+      text="An extensive tutorial from Bignosebird.com"><br>
+<link href="http://hoohoo.ncsa.uiuc.edu/docs/tutorials/includes.html"
+      text="A tutorial from the folks at NCSA">
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p>
+<red>echo.shtml:</red><br>
+<link href="$(ROOT)/ssi/echo.shtml" text="echo.shtml"><br>
+<link href="$(ROOT)/ssi/echo.txt"   text="echo.shtml contents">
+</p>
+<p>
+<red>include.shtml:</red><br>
+<link href="$(ROOT)/ssi/include.shtml" text="include.shtml"><br>
+<link href="$(ROOT)/ssi/header.txt"    text="header.html contents">
+<link href="$(ROOT)/ssi/footer.txt"    text="footer.shtml contents">
+<link href="$(ROOT)/ssi/include.txt"   text="include.shtml contents">
+</p>
+<p>
+<red>file.shtml:</red><br>
+<link href="$(ROOT)/ssi/file.shtml" text="file.shtml"><br>
+<link href="$(ROOT)/ssi/file.txt"   text="file.shtml contents">
+</p>
+<p>
+<red>exec.shtml:</red><br>
+<link href="$(ROOT)/ssi/exec.shtml" text="exec.shtml"><br>
+<link href="$(ROOT)/ssi/exec.txt"   text="exec.shtml contents">
+</p>
+</divert>

@@ -1,0 +1,164 @@
+#use wml::std::info
+
+# define our links to be a certain way
+
+<define-tag link whitespace=delete>
+<preserve href>
+<preserve text>
+<set-var %attributes>
+<a href="<get-var href>"><font color="#999966"><b><get-var text></b></font></a>
+<restore href>
+<restore text>
+</define-tag>
+
+<define-tag red whitespace=delete endtag=required>
+<font color="#FF0000"><b>%body</b></font>
+</define-tag>
+
+<html>
+<head>
+
+<info style=comment domainname="opensourcewebbook.com"
+    copyright="2001 James Lee, http://www.opensourcewebbook.com"/>
+<info style=meta domainname="opensourcewebbook.com"
+    copyright="2001 James Lee, http://www.opensourcewebbook.com"/>
+<meta name="Keywords"
+    content="open source,linux,apache,mysql,perl,embperl,mason,php">
+<meta name="Description" content="Opens Source Web Development Companion Website">
+
+
+<title>Open Source Web Book | $(title)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#FFFFFF" text="#333333" leftmargin="0" topmargin="0"
+marginwidth="0" marginheight="0" link="#333333">
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#000000" colspan="3" align="center"><font color="#FFFFFF">
+www.opensourcewebbook.com
+</font></td>
+</tr>
+<tr>
+<td bgcolor="#999966" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td width="15">&nbsp;</td>
+<td width="180">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="570">
+
+<:
+    # grab the page information passed in
+    my $page_string = "$(page)";
+
+    # if the page info is not blank, process it
+    if ($page_string ne "") {
+
+        # first, print some red text
+        print "<font color=\"#FF0000\"><b>Page Path - </b></font>";
+
+        # split the line on the colon in case we are passing more
+        # than one piece of information as in:
+        #   href1:text1:href2:text2:final text
+        # loop through, building the link
+        my @page = split(/:/, $page_string);
+        while (@page > 1) {
+            my $href = "$(ROOT)" . shift(@page);
+            my $text = shift(@page);
+            print "<a href=\"$href\"><font color=\"#999966\"><b>$text</b></font></a> - ";
+        }
+        print "$page[0]";
+    }
+        
+:>
+
+&nbsp;
+</td>
+<td width="195"> 
+<div align="center"><a href="$(ROOT)/"><img src="/icons/logo.gif"
+width="177" height="51" border="0"></a></div>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="168" valign="top">
+
+
+<table width="164" cellspacing="3" cellpadding="0">
+<tr><td><link href="$(ROOT)/" text="Home"></td></tr>
+<tr><td><link href="$(ROOT)/about/" text="About"></td></tr>
+<tr><td><link href="$(ROOT)/foreword/" text="Foreword"></td></tr>
+<tr><td><link href="$(ROOT)/reviews/" text="Reviews"></td></tr>
+<tr><td><link href="$(ROOT)/authors/" text="Authors"></td></tr>
+<tr><td><link href="$(ROOT)/purchase/" text="Purchase"></td></tr>
+<tr><td><link href="$(ROOT)/errata/" text="Errata"></td></tr>
+<tr><td><link href="$(ROOT)/sourcecode/" text="Sourcecode"></td></tr>
+<tr><td><link href="$(ROOT)/resources/" text="Resources"></td></tr>
+<tr><td><link href="$(ROOT)/tools/" text="Tools"></td></tr>
+<tr><td><link href="$(ROOT)/contents/" text="Contents"></td></tr>
+<tr><td>
+  <table width="130" cellspacing="3" cellpadding="0" align="right">
+    <tr><td><link href="$(ROOT)/contents/linux/" text="Linux"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/apache/" text="Apache"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/perl/" text="Perl"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/wml/" text="WML"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/cgi/" text="CGI and SSI"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/mod_perl/" text="mod_perl"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/mysql/" text="MySQL"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/embperl/" text="Embperl"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/mason/" text="Mason"></td></tr>
+    <tr><td><link href="$(ROOT)/contents/php/" text="PHP"></td></tr>
+  </table>
+</td></tr>
+</table>
+</td>
+<td width="10">&nbsp;</td>
+<td width="2" bgcolor="#999966">&nbsp;</td>
+<td width="20">&nbsp;</td>
+
+<:
+    my $rr = "$(rightrail)";
+    if ($rr eq "no") {
+        print "<td width=\"550\" valign=\"top\">\n";
+    } else {
+        print "<td width=\"333\" valign=\"top\">\n";
+    }
+:>
+
+
+<<PAGE_BODY>>
+
+
+<p>&nbsp;</p>
+</td>
+
+<:
+    my $rr = "$(rightrail)";
+    if ($rr ne "no") {
+        print "<td width=\"20\">&nbsp;</td>\n";
+        print "<td width=\"2\" bgcolor=\"#999966\">&nbsp;</td>\n";
+        print "<td width=\"15\">&nbsp;</td>\n";
+        print "<td width=\"180\" valign=\"top\"><dump RIGHTRAIL>&nbsp;</td>\n";
+    }
+:>
+
+<td width="15">&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>
+
+..PAGE_BODY>>
+

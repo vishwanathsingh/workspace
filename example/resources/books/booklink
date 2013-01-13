@@ -1,0 +1,129 @@
+
+
+# Usage:
+#
+# All tags need a close tag.  If no data, print the default name:
+#  <barnes isbn="0072127732" />
+#
+# To automatically use the link for the bookseller, include an 'img' attribute
+#  <barnes isbn="0072127732" img />
+#
+# To use arbitrary HTML instead for the link, include it in the tags:
+#  <barnes isbn="0072127732" >Random html here to be linked</barnes>
+
+
+
+<define-tag booklink endtag=required whitespace=delete>
+  <preserve  url text img name graphic seller isbn>
+
+  # Make sure it's only set if in the attributes, not global
+  # (Needed later with 'var-exists')
+  <unset-var img>
+
+  <set-var %attributes>
+
+
+  # Barnes and Noble
+  <ifeq <get-var seller> "barnes"
+    <set-var
+	name="Barnes and Noble"
+	graphic="$(IMG)/barnesandnoble.gif"
+	url="http://service.bfast.com/bfast/click?bfmid=2181&sourceid=38089366&bfpid=<get-var isbn>&bfmtype=book"
+    >
+  >
+
+  # Amazon
+  <ifeq <get-var seller> "amazon"
+    <set-var
+	name="Amazon"
+	graphic="$(IMG)/amazon.gif"
+	url="http://www.amazon.com/exec/obidos/ASIN/<get-var isbn>/hackinglinuxexpo/"
+    >
+  >
+
+  # Bamm
+  <ifeq <get-var seller> "bamm"
+    <set-var
+	name="Booksamillion"
+	graphic="$(IMG)/bamm.gif"
+	url="http://www.qksrv.net/click-743904-42121?isbn=<get-var isbn>"
+    >
+  >
+
+  # Fatbrain
+  <ifeq <get-var seller> "fatbrain"
+    <set-var
+	name="Fatbrain"
+	graphic="$(IMG)/fatbrain.gif"
+	url="http://www1.fatbrain.com/asp/bookinfo/bookinfo.asp?theisbn=<get-var isbn>&from=VEP580"
+    >
+  >
+
+  # Borders
+  <ifeq <get-var seller> "borders"
+    <set-var
+	name="Borders"
+	graphic="$(IMG)/borders.gif"
+	url="http://click.linksynergy.com/fs-bin/stat?id=25JMVT**0kk&offerid=6424&type=2&subid=0&url=http%%253A//search.borders.com/fcgi-bin/db2www/search/search.d2w/Details%%253Fcode%%253D<get-var isbn>%%2526searchType%%253DISBNUPC"
+
+    >
+  >
+
+
+
+
+	# make sure they don't fuck up.
+	<ifneq "%body" "" 
+	 <if <var-exists img> 
+	  <group
+	   <warning "Cannot define a body for booklink (<get-var seller>) and an img at the same time">
+	   <exit status=1>
+	  >
+	 >
+	>
+
+
+	# determine the text/etc for the link
+	<set-var text=<ifneq "%body" "" "%body" 
+			<if <var-exists img>
+			    "<img border="0" alt="<get-var name>" src="<get-var graphic>">"
+			    <get-var name>
+			>
+		      >
+	>
+
+	<a target="nonlocal" href="<get-var url>"><get-var text></a>
+
+	<restore url text img name graphic seller isbn>
+</define-tag>
+
+
+<define-tag barnes endtag=required whitespace=delete>
+	<booklink %attributes seller=barnes>%body</booklink>
+</define-tag>
+
+<define-tag amazon endtag=required whitespace=delete>
+	<booklink %attributes seller=amazon>%body</booklink>
+</define-tag>
+
+<define-tag borders endtag=required whitespace=delete>
+	<booklink %attributes seller=borders>%body</booklink>
+</define-tag>
+
+<define-tag bamm endtag=required whitespace=delete>
+	<booklink %attributes seller=bamm>%body</booklink>
+</define-tag>
+
+<define-tag fatbrain endtag=required whitespace=delete>
+	<booklink %attributes seller=fatbrain>%body</booklink>
+</define-tag>
+
+<define-tag allbooks endtag=required whitespace=delete>
+	<font size=-1>
+#	<fatbrain %attributes >%body</fatbrain>&nbsp;
+	<amazon   %attributes >%body</amazon>&nbsp;
+	<barnes   %attributes >%body</barnes>&nbsp;
+#	<borders  %attributes >%body</borders>
+	<bamm     %attributes >%body</bamm>&nbsp;
+	</font>
+</define-tag>	

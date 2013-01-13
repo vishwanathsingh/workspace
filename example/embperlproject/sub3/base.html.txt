@@ -1,0 +1,37 @@
+[! 
+    # remember that code in these types
+    # of commands are executed only when 
+    # the file is first requested or after 
+    # the file is modified
+
+    sub title {
+        return 'The Default Title';
+    }
+!]
+
+[-
+    # now, each time the page is requested,
+    # get the first argument passed in (it
+    # is the request object)
+    # we will then be able to call the 
+    # title() function above using our
+    # request object
+
+    $req = shift;
+-]
+
+<html>
+<head>
+
+[# the code $req->title() below executes the title() #]
+[# function defined in the file requested, or this   #]
+[# file by default                                   #]
+
+<title>[+$req->title()+]</title>
+</head>
+<body bgcolor="#ffffff">
+
+[- Execute ('*') -]
+
+</body>
+</html>

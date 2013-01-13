@@ -1,0 +1,23 @@
+<& ../_top, title => 'Project | Continue',
+            breadcrumb => '/contents/:Contents:/contents/mason/:Mason:/mason/productbackend/:Product Backend:Continue' &>
+<& ../_leftrail &>
+
+<p><font color="#FF0000"><b>Product Backend - Continue</b></font><br></p>
+
+% if ($action eq 'addman' or $action eq 'modman') {
+  <& _man_form, action => $action,
+                manid  => $manid &>
+% } elsif ($action eq 'addprod' or $action eq 'modprod') {
+  <& _prod_form, action => $action,
+                 prodid => $prodid &>
+% } else {
+Please go back and choose an action.
+% }
+
+<& ../_bottom &>
+
+<%args>
+    $action => ''
+    $manid  => ''
+    $prodid => ''
+</%args>

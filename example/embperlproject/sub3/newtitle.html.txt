@@ -1,0 +1,11 @@
+[!
+    # we redefine title(), so that base.html 
+    # will use this definition when this page 
+    # is requested
+
+    sub title {
+        return 'The title for newtitle.html';
+    }
+!]
+
+This is the content of <i>newtitle.html</i>.

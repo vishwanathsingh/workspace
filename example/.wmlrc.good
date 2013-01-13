@@ -1,0 +1,5 @@
+-DOSWB="http://www.opensourcewebbook.com/"
+-DROOT~.
+-DBOOK_TITLE="Open Source Web Development with LAMP"
+-I.
+-I/web/www.opensourcewebbook.com/wml-lib

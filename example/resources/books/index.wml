@@ -1,0 +1,45 @@
+#use wml::oswb title="Resources | Books" page="/resources/:Resources:Books" rightrail="no"
+
+#use "book"
+
+<p><red>Books</red></p>
+<p>In <i>$(BOOK_TITLE)</i>, we refer to a lot of books.  Here they are, in a 
+somewhat (il)logical order.  We suggest you go out and buy at least one copy 
+of each of them.
+</p>
+
+<hr>
+
+<table border=0 cellspacing=9 cellpadding=1 width="100%">
+
+<book
+	title="Open Source Web Development with LAMP"
+	author="James Lee, Brent Ware"
+	pub="Addison Wesley "
+	isbn=020177061X
+	info="Paperback"
+	comment="Our humble tome. "
+>
+<p>
+
+<book
+	title="Hacking Linux Exposed"
+	author="Brian Hatch, James Lee, George Kurtz"
+	pub="Osborne/McGraw-Hill "
+	isbn=0072127732
+	info="Paperback - 608 Pages (April 3, 2001)"
+	comment="A must have for Linux users interested in securing thier machines. "
+>
+<p>
+
+
+<book
+	title="Building Linux Virtual Private Networks"
+	author="Oleg Kolesnikov, Brian Hatch"
+	pub="New Riders Publishing"
+	isbn=1578702666
+	info="Paperback - 408 Pages (February, 2002)"
+	comment="A detailed look at Linux VPN technology, from choosing your software to step-by-step installation and configuration guides.  Covers setups withSSH+PPP, SSL+PPP, IPSec (FreeS/WAN), PPTP, CIPE, VTun, and Tinc .  See the <extlink http://www.buildinglinuxvpns.net website> for more details. "
+>
+<p>
+</table>

@@ -1,0 +1,9 @@
+% my $url   = 'http://www.opensourcewebbook.com/';
+% my $email = 'webmaster@opensourcewebbook.com';
+ 
+<hr>
+Website: <a href="<% $url %>"><% $url %></a>
+<br>
+Comments: <a href="mailto:<% $email %>"><% $email %></a>
+</body>
+</html>

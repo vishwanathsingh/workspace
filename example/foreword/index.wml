@@ -1,0 +1,52 @@
+#use wml::oswb title="Foreword" page="Foreword" rightrail="no"
+
+
+<p><red>Foreword from <i>$(BOOK_TITLE)</i></red><br></p>
+<p>
+When I was asked to review the manuscript of <i>Open Source Web Development
+with LAMP</i>, I was nervous about one thing. Certainly, I had experience with
+Linux, Apache, and Perl, and I knew I could bluff my way through the PHP
+stuff. But the MySQL chapter - warning bells! I've successfully
+avoided "real databases" throughout my career in the
+industry - entirely without intending to, I assure you. But somehow,
+despite nine years of World Wide Web development, I hadn't touched a
+line of SQL since my undergraduate database course.
+</p>
+<p>
+Fortunately, I realized this put me in an ideal position to evaluate the
+book from the perspective of its intended audience: smart folks with a
+fair amount of web savvy, folks who are willing to pick up new
+things - with the benefit of two highly experienced guides. And that is
+what we have in James Lee and Brent Ware.
+</p>
+<p>
+Certainly, the MySQL chapter succeeded in filling a gap in my professional
+education. More surprisingly, I learned many new things from each chapter,
+perhaps especially those that covered what I thought to be familiar
+ground. These authors had things to teach me about Linux configuration and
+Apache security and, of course, about Perl. I have come to realize that
+scarcely anyone knows all there is to know about the Perl programming
+language! Of course, that's one of the nicest things about Perl; as
+its inventor, Larry Wall, has often said, "There's more than one
+way to do it."
+</p>
+<p>
+That remark applies to the whole of Open Source Web development as well.
+The techniques and tools introduced in this book overlap and complement
+each other; you need not master all of them to do tremendously productive
+work.
+</p>
+<p>
+James Lee and Brent Ware have provided an excellent introduction to Linux,
+Apache, MySQL, Perl, PHP, and more. With the help of this book, you can
+get down to work immediately with any of them. I am sure you will find the
+book as useful as I have.
+</p>
+<p>
+Thomas Boutell<br>
+President, <link href="http://www.boutell.com/" text="Boutell.Com, Inc."><br>
+Author of <link href="http://www.boutell.com/cgibook/"
+text="<i>CGI Programming in C and Perl</i>">.
+</p>
+
+

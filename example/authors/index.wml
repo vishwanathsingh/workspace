@@ -1,0 +1,79 @@
+#use wml::oswb title="Authors" page="Authors" rightrail="no"
+
+
+<p><red>AUTHORS</red><br></p>
+<table border="0" width="500">
+<tr>
+<td valign="top"><img src="/icons/james.jpg"></td>
+<td valign="top">
+<red>James Lee</red> - <link href="mailto:james@opensourcewebbook.com"
+text="james@opensourcewebbook.com"><br>
+James Lee is a <linke href="http://www.perl.com/" text="Perl"> hacker and 
+open-source advocate based in Illinois. He has a masters degree from 
+<link href="http://www.northwestern.edu/" text="Northwestern University">, 
+where he can often be seen rooting for the 
+<link href="http://nusports.fansonly.com/sports/m-footbl/nw-m-footbl-body.html"
+      text="Wildcats"> during football season. The founder of
+<link href="http://www.onsight.com/" text="Onsight">, he has worked as a
+programmer, trainer, manager, writer and open-source advocate. He is the
+co-author of the recently released 
+<link href="http://www.hackinglinuxexposed.com" 
+      text="<i>Hacking Linux Exposed</i>"> published by
+McGraw Hill/Osbourne.  He has also written a number of articles on Perl for 
+<link href="http://www.linuxjournal.com/" text="the Linux Journal">.
+Mr. Lee enjoys hacking Perl, developing software for the web,
+reading, traveling and most of all playing with his kids who are too young to 
+know why Dad's favorite animals are 
+<link href="http://lwn.net/Gallery/" text="penguins"> and 
+<link href="http://perl.oreilly.com/usage/index.html" text="camels">.
+</td>
+</tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr>
+<td valign="top"><img src="/icons/brent.jpg" width="150"></td>
+<td valign="top">
+<red>Brent Ware</red> - <link href="mailto:brent@opensourcewebbook.com"
+text="brent@opensourcewebbook.com"><br>
+Brent Ware grew up next to the Goodnight Trail on a farm/ranch on the
+High Plains of Texas, and fortunately got away as quickly as he could,
+as soon as he read Adam Osborne's book on microprocessors at age 14.
+<br><br>
+He started out as an electrical engineer, then gave up a promising,
+well-paid and boring career as an MSEE to go back to school and get a
+Ph.D in physics.  After serving the requisite indentured servitude as
+a grad student in experimental high-energy physics searching for
+non-existent particles (University of Texas, BNL), he pursued the
+usual academic path of a postdoctoral fellowship (Caltech, LIGO,
+searching for very small ripples in space-time), poverty, followed by
+disillusionment, worthless stock options in lieu of salary at a
+telecom dotcom in Seattle, and is now a scientist 
+in Los Angeles, working with "lasers."  In passing, he has been
+exposed to multiple operating systems on a variety of computers, the
+great majority of which are now museum pieces (or junk) and their
+software fodder for trivia questions on comp.os newsgroups (from CDC
+1604, Fairchild F4, PDP, VAXen, Alliant, Cray, Apollo, TI, IBM VM/CMS,
+Daisy, Wang, REI, and Intel Blue Box.  Among others.).  Fortunately,
+Linux seems to be a keeper, and he hopes it will stick around no
+matter what happens to Wintel.  In any case, he took a vow to only use
+*nix and emacs and LaTeX and never burn any more neurons on transient,
+fly-by-night alternatives.  He has been an unpaid sysadmin of Linux,
+Unix, and Mac OS X systems over the years on a variety of different
+platforms, and contributed to 
+<link href="http://www.hackinglinuxexposed.com" text="<i>Hacking Linux Exposed</i>">, 
+among other less
+prestigious publications in journals such as Physics Review Letters
+and is working on the Great American Novel.
+<br><br>
+He also has the best dog in the universe, and is a 
+<link href="http://www.bware.org/icons/lipo2.jpg" text="serious climber">,
+having onsighted up to 5.11c, redpointed up to 5.12c, climbed a number
+of big walls both in Yosemite and in remote locations around the world
+(and attempted many more than he succeeded on), and has a number of
+first ascents.  His greatest accomplishment is to hold down a
+full-time job, write a book, and climb outside more than 120 days per
+year (at the expense of any semblance of a social life).  His goal is
+to win either the ISO or state lottery so that he can live the life of
+the full-time climbing bum in ease.
+</td>
+</tr>
+</table>

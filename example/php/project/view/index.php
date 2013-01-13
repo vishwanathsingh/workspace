@@ -1,0 +1,199 @@
+<?
+    $search = $HTTP_POST_VARS["search"];
+
+    // connect
+    $mysql = mysql_connect("localhost", "apache", "LampIsCool")
+        or die("could not connect to mysql");
+
+    // select the "journal" database
+    mysql_select_db("journal")
+        or die("select failed - " . mysql_errno() . ": " . mysql_error());
+
+    if ($search) {
+        $query = "SELECT id,date,title 
+                  FROM entries 
+                  WHERE title LIKE '%$search%' 
+                        OR text LIKE '%$search%' 
+                  ORDER BY date DESC 
+                  LIMIT 10";
+    } else {
+        $query = "SELECT id,date,title 
+                  FROM entries 
+                  ORDER BY date DESC 
+                  LIMIT 10";
+    }
+    // execute the MySQL query, grab the result in $result
+    $result = mysql_query($query)
+        or die("query failed - " . mysql_errno() . ": " . mysql_error());
+
+?>
+<html>
+<head>
+<title>Open Source Web Book - PHP Project</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#333333" leftmargin="0" topmargin="0"
+marginwidth="0" marginheight="0" link="#333333">
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#000000" colspan="3" align="center"><font color="#FFFFFF">
+www.opensourcewebbook.com
+</font></td>
+</tr>
+<tr>
+<td bgcolor="#999966" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td width="15">&nbsp;</td>
+<td width="180">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="570"><font color="#FF0000"><b>Page Path -</b></font> 
+<a href="/contents/"><font color="#999966"><b>Contents</b></font></a> -
+<a href="/contents/php/"><font color="#999966"><b>PHP</b></font></a> -
+<a href="/php/project/"><font color="#999966"><b>Project</b></font></a> -
+View Entries
+</td>
+<td width="195"> 
+<div align="center"><img src="/icons/logo.gif" width="177"
+height="51"></div>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="168" valign="top">
+
+
+<table width="164" cellspacing="3" cellpadding="0">
+<tr><td><a href="/"><font color="#999966"><b>Home</b></font></a></td></tr>
+<tr><td><a href="/about/"><font 
+color="#999966"><b>About</b></font></a></td></tr>
+<tr><td><a href="/foreword/"><font
+color="#999966"><b>Foreword</b></font></a></td></tr>
+<tr><td><a href="/reviews/"><font
+color="#999966"><b>Reviews</b></font></a></td></tr>
+<tr><td><a href="/authors/"><font
+color="#999966"><b>Authors</b></font></a></td></tr>
+<tr><td><a href="/purchase/"><font
+color="#999966"><b>Purchase</b></font></a></td></tr>
+<tr><td><a href="/errata/"><font
+color="#999966"><b>Errata</b></font></a></td></tr>
+<tr><td><a href="/sourcecode/"><font
+color="#999966"><b>Sourcecode</b></font></a></td></tr>
+<tr><td><a href="/resources/"><font
+color="#999966"><b>Resources</b></font></a></td></tr>
+<tr><td><a href="/tools/"><font
+color="#999966"><b>Tools</b></font></a></td></tr>
+<tr><td><a href="/contents/"><font
+color="#999966"><b>Contents</b></font></a></td></tr>
+<tr><td>
+  <table width="130" cellspacing="3" cellpadding="0" align="right">
+    <tr><td><a href="/contents/linux/"><font
+color="#999966"><b>Linux</b></font></a></td></tr>
+    <tr><td><a href="/contents/apache/"><font
+color="#999966"><b>Apache</b></font></a></td></tr>
+    <tr><td><a href="/contents/perl/"><font
+color="#999966"><b>Perl</b></font></a></td></tr>
+    <tr><td><a href="/contents/mysql/"><font
+color="#999966"><b>MySQL</b></font></a></td></tr>
+    <tr><td><a href="/contents/wml/"><font
+color="#999966"><b>WML</b></font></a></td></tr>
+    <tr><td><a href="/contents/cgi/"><font 
+color="#999966"><b>CGI</b></font></a></td></tr>
+    <tr><td><a href="/contents/mod_perl/"><font
+color="#999966"><b>mod_perl</b></font></a></td></tr>
+    <tr><td><a href="/contents/ssi/"><font
+color="#999966"><b>SSI</b></font></a></td></tr>
+    <tr><td><a href="/contents/embperl/"><font
+color="#999966"><b>Embperl</b></font></a></td></tr>
+    <tr><td><a href="/contents/mason/"><font
+color="#999966"><b>Mason</b></font></a></td></tr>
+    <tr><td><a href="/contents/php/"><font
+color="#999966"><b>PHP</b></font></a></td></tr>
+  </table>
+</td></tr>
+</table>
+</td>
+<td width="10">&nbsp;</td>
+<td width="2" bgcolor="#999966">&nbsp;</td>
+<td width="20">&nbsp;</td>
+<td width="500" valign="top">
+<p><font color="#FF0000"><b>PHP Project - View Entries</b></font><br></p>
+<p>Only the most recent 10 entries are shown.  To narrow the returned 
+entries, enter some search text here.  The fields searched are <b>title</b>
+and <b>text</b>.</p>
+<form action="/php/project/view/" method="post">
+Search text: <input type="text" name="search">
+<input type="submit" value="Search!">
+</form>
+<hr>
+<?
+  if ($search) {
+    print "<p>Search string: <b>" . $search . "</b></p>";
+  }
+?>
+<? if (mysql_num_rows($result) > 0) : ?>
+<p>Click on the title of one of the entries below to see the details.</p>
+<table border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <th align="left">Date</th>
+    <th align="left">Title</th>
+  </tr>
+<? 
+  $i = 0;
+  while ($array = mysql_fetch_array($result)) {
+    if ($i % 2 == 0) {
+        $bgcolor = "#ffffff";
+    } else {
+        $bgcolor = "#cccccc";
+    }
+    print "  <tr bgcolor=" . $bgcolor . ">";
+    print "    <td>" . $array["date"]  . "</td>";
+    print '    <td valign="top"><a href="/php/project/view/entry/?id=' 
+          . $array["id"] . '"><font color="#999966"><b>' 
+          . $array["title"] . '</b></font></a></td>';
+    print "  </tr>";
+    $i++;
+  }
+?>
+</table>
+<? else : ?>
+<p>Sorry, no records found.  Please try again.</p>
+<? endif; ?>
+<?
+  // free memory
+  mysql_free_result($result);
+
+  // we are all done, so close the MySQL connection
+  mysql_close($mysql);
+?>
+
+<hr>
+<? 
+    if ($search) {
+        print "<p><a href=\"/php/project/view/\"><font color=\"#999966\">";
+        print "<b>View all entries</b></font></a>";
+        print "<hr>";
+    }
+?>
+<p><a href="/php/project/add/"><font color="#999966"><b>Add journal
+entry</b></font></a></p>
+
+</td>
+<td width="65">&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>

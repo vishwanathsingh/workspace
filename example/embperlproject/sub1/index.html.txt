@@ -1,0 +1,6 @@
+This is <i>index.html</i> within the subdirectory 
+<i>sub1</i>.  Requesting this file will use the 
+template <i>base.html</i> located in the parent 
+directory <i>/var/www/html/embperlproject</i>, 
+since there is no <i>base.html</i> in this 
+directory.

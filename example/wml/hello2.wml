@@ -1,0 +1,13 @@
+#include "head2.wml" title="WML hello2.wml"
+
+hello, world!
+
+<hr>
+
+<pre>
+     here    is   some
+
+    preformatted   text
+</pre>
+
+#include "foot2.wml" author="Ron Ballard"

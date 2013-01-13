@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Embperl foreach</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Environment Variables Redux</h1>
+
+[# loop through the sorted keys of %ENV, printing #]
+[# the keys and their values                      #]
+[$ foreach $key (sort keys %ENV) $]
+  [+ $key +] = [+ $ENV{$key} +]<br>
+[$ endforeach $]
+
+</body>
+</html>

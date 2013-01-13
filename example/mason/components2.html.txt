@@ -1,0 +1,6 @@
+<& _header2, title => 'The Second Component Example' &>
+
+<i>this text is in components2.html:</i> <b>hello, world!</b>
+
+<& _footer2, url   => 'http://www.opensourcewebbook.com',
+             email => 'webmaster@opensourcewebbook.com' &>

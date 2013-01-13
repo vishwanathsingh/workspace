@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>Server Side Includes: exec Directive</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Examples of the exec directive</h1>
+Here is the disk usage summary for <tt>/home</tt>:
+<pre>
+<!--#exec cmd="/bin/df /home"-->
+</pre>
+</body>
+</html>

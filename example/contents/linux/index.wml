@@ -1,0 +1,58 @@
+#use wml::oswb title="Content | Linux" page="/contents/:Contents:Linux"
+
+<p><red>Linux - The Choice of a Gnu Generation</red><br></p>
+<p>Linux is an Open Source version of Unix developed by Linus Torvalds to
+port Unix to the Intel x86 processor.  This made Unix available on the
+most ubiquitous computer hardware that has ever existed, and therefore
+available to almost everyone.  Linux has since been ported to almost every
+processor and function one could imagine, including gameboxes, personal
+digital assistants (PDAs), personal digital video recorders, and IBM
+mainframes, expanding the original concept of Unix for x86 to Unix for
+everything.  Linux isn't the only version of Unix available to most people
+(also notable are the various BSD variants, also Open Source), but it's by
+far the most popular.</p>
+<p>In this chapter, we discuss how to get Linux, how to install it, and
+some of the basic commands.</p>
+
+
+<divert RIGHTRAIL>
+<p>
+<red>DISTRIBUTIONS:</red>
+</p>
+<p>
+<red>Caldera</red><br>
+<link href="http://www.caldera-systems.com/" text="www.caldera-systems.com/"><br>
+</p>
+<p>
+<red>Corel</red><br>
+<link href="http://linux.corel.com/" text="linux.corel.com/"><br>
+</p>
+<p>
+<red>Debian</red><br>
+<link href="http://www.debian.org/" text="www.debian.org/"><br>
+</p>
+<p>
+<red>Mandrake</red><br>
+<link href="http://www.linux-mandrake.com/" text="www.linux-mandrake.com/"><br>
+</p>
+<p>
+<red>MkLinux</red><br>
+<link href="http://www.mklinux.com/" text="www.mklinux.com/"><br>
+</p>
+<p>
+<red>Red Hat</red><br>
+<link href="http://www.redhat.com/" text="www.redhat.com/"><br>
+</p>
+<p>
+<red>Slackware</red><br>
+<link href="http://www.slackware.com/" text="www.slackware.com/"><br>
+</p>
+<p>
+<red>SuSE</red><br>
+<link href="http://www.suse.com/" text="www.suse.com/"><br>
+</p>
+<p>
+<red>TurboLinux</red><br>
+<link href="http://www.turbolinux.com/" text="www.turbolinux.com/"><br>
+</p>
+</divert>

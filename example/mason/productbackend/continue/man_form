@@ -1,0 +1,99 @@
+% if ($result) {
+    <% $result %>
+% } else {
+
+<form action="/mason/productbackend/finished/" method="post">
+<table border="0" cellpadding="5">
+  <tr>
+    <td>Manufacturer ID:</td>
+    <td><input type="text" name="manid" value="<% $manid %>" size="4"></td>
+  </tr>
+  <tr>
+    <td>Name:</td>
+    <td><input type="text" name="name" value="<% $name %>"></td>
+  </tr>
+  <tr>
+    <td>Address:</td>
+    <td><input type="text" name="address" value="<% $address %>"></td>
+  </tr>
+  <tr>
+    <td>City:</td>
+    <td><input type="text" name="city" value="<% $city %>"></td>
+  </tr>
+  <tr>
+    <td>State:</td>
+    <td><input type="text" name="state" value="<% $state %>"></td>
+  </tr>
+  <tr>
+    <td>Zip:</td>
+    <td><input type="text" name="zip" value="<% $zip %>"></td>
+  </tr>
+</table>
+% if ($action eq 'modman') {
+<input type="submit" value="Modify">
+% } else {
+<input type="submit" value="Add">
+% }
+&nbsp;&nbsp;&nbsp;<input type="reset">
+<input type="hidden" name="action" value="<% $action %>">
+</form>
+% }
+
+<%args>
+    $action => ''
+    $manid  => ''
+</%args>
+
+<%init>
+use DBI;
+
+my $name    = '';
+my $address = '';
+my $city    = '';
+my $state   = '';
+my $zip     = '';
+
+# first things first, if we are not modifying a manufacturer,
+# then we don't need a manufacturer id
+if ($action ne 'modman') {
+    $manid = '';
+}
+
+my $result = '';
+unless ($result = check_man_id($manid, $action)) {
+    if ($manid) {
+        # we have a manid, so query the database
+        my $dbh = DBI->connect('DBI:mysql:product_database',
+                               'apache','LampIsCool');
+        my $cursor = $dbh->prepare('SELECT name, address, city,
+                                           state, zip 
+                                    FROM manufacturers
+                                    WHERE man_id = ?');
+        $cursor->execute($manid);
+
+        ($name,$address,$city,$state,$zip) = $cursor->fetchrow;
+    }
+}
+</%init>
+
+<%once>
+# define a function to make sure our manid is well formed
+sub check_man_id {
+    my $manid  = shift;
+    my $action = shift;
+
+    if ($manid) {
+        if (length($manid) <= 4 and $manid =~ /^\d+$/) {
+            # all is well, return an empty string
+            return '';
+        } else {
+            return 'Manufacturer ID is not properly formatted as up to 4 digit characters.';
+        }
+    } elsif ($action eq 'modman') {
+        return 'Please go back and enter a manufacturer id to modify.';
+    } else {
+        # all is well, return an empty string
+        return '';
+    }
+}
+</%once>

@@ -1,0 +1,11 @@
+<html>
+<head>
+<title><% $title %></title>
+</head>
+<body bgcolor="#ffffff">
+<i>This text is in the header.</i>
+<hr>
+
+<%args>
+$title => 'Mason Component Example'
+</%args>

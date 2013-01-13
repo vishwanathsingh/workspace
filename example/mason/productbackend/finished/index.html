@@ -1,0 +1,178 @@
+<& ../_top, title => 'Project | Finished',
+            breadcrumb => '/contents/:Contents:/contents/mason/:Mason:/mason/productbackend/:Product Backend:Finished' &>
+<& ../_leftrail &>
+
+<p><font color="#FF0000"><b>Product Backend - Finished</b></font><br></p>
+
+% if ($error) {
+<p>
+There was a problem <font color="#ff0000"><% $error %></font>
+</p>
+% } else {
+<p>
+Thank you.
+</p>
+<hr>
+<& ../_select_form &>
+% }
+
+<& ../_bottom &>
+
+<%args>
+    $action      => ''
+    $manid       => ''
+    $prodid      => ''
+    $name        => ''
+    $address     => ''
+    $city        => ''
+    $state       => ''
+    $zip         => ''
+    $category    => ''
+    $description => ''
+    $price       => ''
+</%args>
+
+<%init>
+use DBI;
+
+my $dbh = DBI->connect('DBI:mysql:product_database',
+                       'apache','LampIsCool');
+
+# $error will be an error string
+my $error = '';
+
+if ($action eq 'addman' or $action eq 'modman') {
+    # we are processing an add or modify a manufacturer, so
+    # let's do some sanity checking of the data
+    unless ($name and $address and $city and $state and $zip) {
+        $error = 'Please go back and fill out all fields.';
+    }  else {
+
+        # now, check to see if the data is ok
+        # is $manid properly formed?
+        unless (length($manid) <= 4 and $manid =~ /^\d+$/) {
+            $error = 'Manufacturer ID is not properly formatted as up to 4 digit characters';
+        } else {
+            # check each of the other variables for valid characters
+            foreach my $var ($name, $address, $city, $state, $zip) {
+                unless ($var =~ /^[\w\s\.\-']+$/) {
+                    $error = "One or more fields contain invalid characters: $var";
+                    last;
+                }
+            }
+        }
+    }
+
+    # we are done checking our data, so if $error has no value, we
+    # have no error, so take the approriate action
+    unless ($error) {
+        if ($action eq 'addman') {
+            my $cursor = $dbh->prepare('INSERT INTO manufacturers
+                                        (man_id, name, address, city, state, zip)
+                                        VALUES (?, ?, ?, ?, ?, ?)');
+            #$cursor->execute($manid, $name, $address, $city, $state, $zip);
+    
+            # check for an error message
+            $error = $cursor->errstr();
+
+        } elsif ($action eq 'modman') {
+            my $cursor = $dbh->prepare('SELECT name FROM manufacturers
+                                        WHERE man_id = ?');
+            $cursor->execute($manid);
+
+            # check for an error message
+            unless ($error = $cursor->errstr()) {
+                # check to see if record is in the database
+                my($name_in_db) = $cursor->fetchrow();
+                unless ($name_in_db) {
+                    $error = 'Trying to modify a Manufacturer ID that is not in the database.';
+                } else {
+                    # we found the record, so let's modify it
+                    my $cursor = $dbh->prepare('REPLACE INTO manufacturers
+                                                (man_id, name, address, city, 
+                                                state, zip)
+                                                VALUES (?, ?, ?, ?, ?, ?)');
+                    #$cursor->execute($manid, $name, $address, $city, $state, $zip);
+
+                    # check for an error message
+                    $error = $cursor->errstr();
+                }
+            }
+        } 
+    } 
+} elsif ($action eq 'addprod' or $action eq 'modprod') {
+    # we are processing an add or modify a product, so
+    # let's do some sanity checking of the data
+    unless ($prodid and $manid and $name and $category and $description 
+            and $price) {
+        $error = 'Please go back and fill out all fields.';
+    }  else {
+
+        # now, check to see if the data is ok
+        # is $prodid properly formed?
+        unless (length($prodid) <= 4 and $prodid =~ /^\w+$/) {
+            $error = 'Manufacturer ID is not properly formatted as up to 4
+digit characters';
+        } else {
+            # check each of the other variables for valid characters
+            foreach my $var ($manid, $name, $category, $description, $price) {
+                unless ($var =~ /^[\w\s\.\-']+$/) {
+                    $error = "One or more fields contain invalid characters: $var";
+                    last;
+                }
+            }
+
+            # last thing to test for is the length of $description
+            if (length($description) > 200) {
+                $error = 'Desciription text greater than 200 characters.';
+            }
+        }
+    }
+
+    # we are done checking our data, so if $error has no value, we
+    # have no error, so take the approriate action
+    unless ($error) {
+        if ($action eq 'addprod') {
+            my $cursor = $dbh->prepare('INSERT INTO products
+                                        (prod_id, man_id, name, category, 
+                                         description, price)
+                                        VALUES (?, ?, ?, ?, ?, ?)');
+            #$cursor->execute($prodid, $manid, $name, $category,
+            #                 $description, $price);
+
+            # check for an error message
+            $error = $cursor->errstr();
+
+        } elsif ($action eq 'modprod') {
+            my $cursor = $dbh->prepare('SELECT name FROM products
+                                        WHERE prod_id = ?');
+            $cursor->execute($prodid);
+
+            # check for an error message
+            unless ($error = $cursor->errstr()) {
+                # check to see if record is in the database
+                my($name_in_db) = $cursor->fetchrow();
+                unless ($name_in_db) {
+                    $error = 'Trying to modify a Product ID that is not in the database.';
+                } else {
+                    # we found the record, so let's modify it
+                    my $cursor = $dbh->prepare('REPLACE INTO products
+                                                (prod_id, man_id, name, 
+                                                 category, description,
+                                                 price)
+                                                VALUES (?, ?, ?, ?, ?, ?)');
+                    #$cursor->execute($prodid, $manid, $name, $category, 
+                    #                 $description, $price);
+
+                    # check for an error message
+                    $error = $cursor->errstr();
+                }
+            }
+        }
+    }
+
+
+} else {
+    $error = 'Invalid action.';
+}
+</%init>

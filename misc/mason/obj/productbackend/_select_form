@@ -1,0 +1,89 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+
+use DBI;
+
+my $dbh = DBI->connect('DBI:mysql:product_database',
+                       'apache','LampIsCool');
+
+my $manid;
+my $prodid;
+my $cursor;
+
+$_out->('<p>
+Select an action:
+</p>
+<form action="/mason/productbackend/continue/" method="post">
+<table border="0">
+<tr>
+  <td><input type="radio" name="action" value="addman"></td>
+  <td>Add a manufacturer</td>
+</tr>
+<tr>
+  <td><input type="radio" name="action" value="modman"></td>
+  <td>Modify Manufacturer ID: 
+    <select name="manid">
+');
+ $cursor = $dbh->prepare('SELECT man_id 
+                          FROM manufacturers 
+                          ORDER BY man_id');
+ $cursor->execute();
+ while (($manid) = $cursor->fetchrow()) {
+$_out->('        <option value="');
+$_out->( $manid );
+$_out->('">');
+$_out->( $manid );
+$_out->('</option>
+');
+ }
+$_out->('    </select>
+  </td>
+</tr>
+<tr>
+  <td><input type="radio" name="action" value="addprod"></td>
+  <td>Add a product</td>
+</tr>
+<tr>
+  <td><input type="radio" name="action" value="modprod"></td>
+  <td>Modify Product ID: 
+    <select name="prodid">
+');
+ $cursor = $dbh->prepare('SELECT prod_id 
+                          FROM products 
+                          ORDER BY prod_id');
+ $cursor->execute();
+ while (($prodid) = $cursor->fetchrow()) {
+$_out->('        <option value="');
+$_out->( $prodid );
+$_out->('">');
+$_out->( $prodid );
+$_out->('</option>
+');
+ }
+$_out->('    </select>
+</tr>
+</table>
+<br>
+<input type="submit" value="Continue">
+</form>
+</p>
+
+');
+return undef;
+
+},
+'create_time'=>1035412206,
+'object_size'=>1765,
+'parser_version'=>8
+)
+;

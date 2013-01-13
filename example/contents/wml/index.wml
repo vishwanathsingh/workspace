@@ -1,0 +1,132 @@
+#use wml::oswb title="Content | WML" page="/contents/:Contents:WML"
+
+<p><red>WML - Website META Language</red><br></p>
+<p>
+The <i>Website META Language</i> (WML) is a programming language created
+by Ralf S. Engelschall to build HTML code - thus a <i>meta</i>language
+(see <link href="http://thewml.org/" text="thewml.org/">).  It provides a
+convenient way to create and maintain complex static web sites (as opposed
+to the dynamic Web sites we'll create later with 
+<link href="$(ROOT)/contents/cgi/" text="CGI">, 
+<link href="$(ROOT)/contents/mod_perl/" text="mod_perl">, 
+<link href="$(ROOT)/contents/embperl/" text="Embperl">, 
+<link href="$(ROOT)/contents/mason/" text="Mason">, 
+etc.).  It's especially useful for maintaining a consistent look
+and feel across the Web site.  As such, it's a step up from plan HTML for
+building a web site, and is easier to use and less complex than the
+dynamic web tools we'll study in later chapters.
+</p>
+<p>
+If your site serves up a large number of static web pages, with WML you
+can change all the pages by changing one template and then executing a
+<tt>make</tt>-like command.  Another advantage of using WML is that after
+compilation, there's no more server-side processing; in contrast, the
+dynamic languages we'll discuss later have to be executed on the server
+when they are called.  In addition, with WML the client-side browser gains
+a speed advantage from being able to cache the static pages.
+</p>
+
+<p><red>WML Links</red></p>
+<p><link text="WML Home Page"
+         href="http://thewml.org/">
+</p>
+
+<divert RIGHTRAIL>
+<red>EXAMPLES:</red><br>
+<p>
+<red>hello1.wml:</red><br>
+<link href="$(ROOT)/wml/head1.wml"   text="head1.wml"><br>
+<link href="$(ROOT)/wml/foot1.wml"   text="foot1.wml"><br>
+<link href="$(ROOT)/wml/hello1.wml"  text="hello1.wml"><br>
+<link href="$(ROOT)/wml/hello1.html" text="hello1.html">
+</p>
+<p>
+<red>hello2.wml:</red><br>
+<link href="$(ROOT)/wml/head2.wml"   text="head2.wml"><br>
+<link href="$(ROOT)/wml/foot2.wml"   text="foot2.wml"><br>
+<link href="$(ROOT)/wml/hello2.wml"  text="hello2.wml"><br>
+<link href="$(ROOT)/wml/hello2.html" text="hello2.html">
+</p>
+<p>
+<red>hello3.wml:</red><br>
+<link href="$(ROOT)/wml/head3.wml"   text="head3.wml"><br>
+<link href="$(ROOT)/wml/foot3.wml"   text="foot3.wml"><br>
+<link href="$(ROOT)/wml/hello3.wml"  text="hello3.wml"><br>
+<link href="$(ROOT)/wml/hello3.html" text="hello3.html">
+</p>
+<p>
+<red>page1.wml:</red><br>
+<link href="$(ROOT)/wml/page1.wml"   text="page1.wml"><br>
+<link href="$(ROOT)/wml/page1.html"  text="page1.html">
+</p>
+<p>
+<red>page2.wml:</red><br>
+<link href="$(ROOT)/wml/page2.wml"   text="page2.wml"><br>
+<link href="$(ROOT)/wml/page2.html"  text="page2.html">
+</p>
+<p>
+<red>toc.wml:</red><br>
+<link href="$(ROOT)/wml/toc.wml"   text="toc.wml"><br>
+<link href="$(ROOT)/wml/toc.html"  text="toc.html">
+</p>
+<p>
+<red>navbar.wml:</red><br>
+<link href="http://www.hackinglinuxexposed.com/" text="hackinglinuxexposed.com"><br>
+<link href="$(ROOT)/wml/navbar.wml"   text="navbar.wml"><br>
+<link href="$(ROOT)/wml/navbar.html"  text="navbar.html">
+</p>
+<p>
+<red>xtable1.wml:</red><br>
+<link href="$(ROOT)/wml/xtable1.wml"   text="xtable1.wml"><br>
+<link href="$(ROOT)/wml/xtable1.html"  text="xtable1.html">
+</p>
+<p>
+<red>xtable2.wml:</red><br>
+<link href="$(ROOT)/wml/xtable2.wml"   text="xtable2.wml"><br>
+<link href="$(ROOT)/wml/xtable2.html"  text="xtable2.html">
+</p>
+<p>
+<red>diversion.wml:</red><br>
+<link href="$(ROOT)/wml/diversion.wml"   text="diversion.wml"><br>
+<link href="$(ROOT)/wml/diversion.html"  text="diversion.html">
+</p>
+<p>
+<red>template1.wml:</red><br>
+<link href="$(ROOT)/wml/template1.wml" text="template1.wml"><br>
+<link href="$(ROOT)/wml/better1.wml"   text="better1.wml"><br>
+<link href="$(ROOT)/wml/better1.html"  text="better1.html">
+</p>
+<p>
+<red>.wmlrc:</red><br>
+<link href="$(ROOT)/wml/wmlrc"  text=".wmlrc">
+</p>
+<p>
+<red>define.wml:</red><br>
+<link href="$(ROOT)/wml/define.wml"   text="define.wml"><br>
+<link href="$(ROOT)/wml/define.html"  text="define.html">
+</p>
+<p>
+<red>eperl1.wml:</red><br>
+<link href="$(ROOT)/wml/eperl1.wml"   text="eperl1.wml"><br>
+<link href="$(ROOT)/wml/eperl1.html"  text="eperl1.html">
+</p>
+<p>
+<red>eperl2.wml:</red><br>
+<link href="$(ROOT)/wml/eperl2.wml"   text="eperl2.wml"><br>
+<link href="$(ROOT)/wml/eperl2.html"  text="eperl2.html">
+</p>
+<p>
+<red>eperl3.wml:</red><br>
+<link href="$(ROOT)/wml/breadcrumb.wml"   text="breadcrumb.wml"><br>
+<link href="$(ROOT)/wml/eperl3.wml"   text="eperl3.wml"><br>
+<link href="$(ROOT)/wml/eperl3.html"  text="eperl3.html">
+</p>
+<p>
+<red>Project:</red><br>
+<link href="$(ROOT)/wml/oswb.wml"   text="oswb.wml"><br>
+<link href="$(ROOT)/errata/index.wml"   text="/errata/index.wml"><br>
+<link href="$(ROOT)/errata/"  text="/errata/"><br>
+<link href="$(ROOT)/contents/wml/index.wml"   text="/contents/wml/index.wml"><br>
+<link href="$(ROOT)/contents/wml/"  text="/contents/wml/">
+</p>
+</divert>

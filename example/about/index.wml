@@ -1,0 +1,9 @@
+#use wml::oswb title="About" page="About"
+
+
+<p><red>About $(BOOK_TITLE)</red><br></p>
+<p>TBD</p>
+<p><link href="$(ROOT)/about/auth/" text="To learn how to get a
+username/password">.<p>
+
+

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Mason Conditional Constructs</title>
+</head>
+<body bgcolor="#ffffff">
+
+<h3><tt>if</tt> Statement</h3>
+
+% if ($ENV{HTTP_USER_AGENT} =~ /mozilla/i) {
+Hello Mozilla browser!
+% } else {
+You are not the Mozilla broswer.
+% }
+
+<h3><tt>unless</tt> Statement</h3>
+
+Today is <% scalar(localtime()) %>
+% unless (localtime() =~ /^(Sat|Sun)/) {
+and it is NOT a weekend.
+% } else {
+and it is a weekend!
+% }
+
+</table>
+</body>
+</html>

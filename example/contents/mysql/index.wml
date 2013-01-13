@@ -1,0 +1,40 @@
+#use wml::oswb title="Content | MySQL" page="/contents/:Contents:MySQL"
+
+<p><red>MySQL</red><br></p>
+<p>
+Many of the applications that a web developer wants to use can be
+made easier by the use of a standardized database to store, organize,
+and access information.  MySQL is an Open Source (GPL) Standard Query
+Language (SQL) database that is fast, reliable, easy to use, and 
+suitable for applications of any size.  SQL is the ANSI-standard database
+query language used by most databases (though all have their nonstandard
+extensions).
+</p>
+<p>
+MySQL can easily be integrated into Perl programs by using the Perl 
+DBI (DataBase Interface) module.  DBI is an Application Programmer 
+Interface (API) that allows Perl to connect to and query a
+number of SQL databases (among them MySQL, mSQL, PostgreSQL, Oracle,
+Sybase, and Informix).
+</p>
+
+<p><red>MySQL Links</red></p>
+<p><link text="MySQL Home Page"
+         href="http://www.mysql.com">
+</p>
+
+<divert RIGHTRAIL>
+<red>EXAMPLES:</red><br>
+<p>
+<red>connect.pl:</red><br>
+<link href="$(ROOT)/mysql/connect.pl"   text="connect.pl">
+</p>
+<p>
+<red>show_ages.pl:</red><br>
+<link href="$(ROOT)/mysql/show_ages.pl"   text="show_ages.pl">
+</p>
+<p>
+<red>insert.pl:</red><br>
+<link href="$(ROOT)/mysql/insert.pl"   text="insert.pl">
+</p>
+</divert>

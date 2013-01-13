@@ -1,0 +1,42 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$_out->('<html>
+<head>
+<title>Mason Form Example</title>
+</head>
+<body bgcolor="#ffffff">
+<h3>Mason Form Example</h3>
+<form action="/mason/handleform.html">
+Name: <input type="text" name="name">
+<br>
+Address: <input type="text" name="address">
+<br>
+City: <input type="text" name="city">
+<br>
+State: <input type="text" name="state" size="2">
+<br>
+Zip: <input type="text" name="zip" size="10">
+<br>
+<input type="submit"> <input type="reset">
+</form>
+</body>
+</html>
+');
+return undef;
+
+},
+'create_time'=>1035411778,
+'object_size'=>760,
+'parser_version'=>8
+)
+;

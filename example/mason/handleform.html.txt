@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Mason Form Handling Example</title>
+</head>
+<body bgcolor="#ffffff">
+
+<h3>Mason Form Handling Example</h3>
+
+You entered the following in the form:
+
+<br><br>
+Name: <b><% $name %></b> <br>
+Address: <b><% $address %></b> <br>
+City: <b><% $city %></b> <br>
+State: <b><% $state %></b> <br>
+Zip: <b><% $zip %></b> <br>
+</body>
+</html>
+
+<%args>
+    # within this block we "declare" all our variables
+    # that will contain the posted data - the name of
+    # the variable is the name of the widget in the form -
+    # for instance the city widget is named "city", so
+    # the corresponding variable is $city
+
+    # the location of this block is arbitrary - it can
+    # be at the top of the page or at the bottom or
+    # anywhere in between - by convention it is at the
+    # bottom
+    
+    $name
+    $address
+    $city
+    $state
+    $zip
+</%args>

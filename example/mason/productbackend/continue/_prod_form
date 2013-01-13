@@ -1,0 +1,99 @@
+% if ($result) {
+    <% $result %>
+% } else {
+
+<form action="/mason/productbackend/finished/" method="post">
+<table border="0" cellpadding="5">
+  <tr>
+    <td>Product ID:</td>
+    <td><input type="text" name="prodid" value="<% $prodid %>" size="4"></td>
+  </tr>
+  <tr>
+    <td>Manufacturer ID:</td>
+    <td><input type="text" name="manid" value="<% $manid %>" size="4"></td>
+  </tr>
+  <tr>
+    <td>Name:</td>
+    <td><input type="text" name="name" value="<% $name %>"></td>
+  </tr>
+  <tr>
+    <td>Category:</td>
+    <td><input type="text" name="category" value="<% $category %>"></td>
+  </tr>
+  <tr>
+    <td valign="top">Description:</td>
+    <td><textarea name="description" rows="5" cols="30"><% $description %></textarea></td>
+  </tr>
+  <tr>
+    <td>Price:</td>
+    <td>$<input type="text" name="price" value="<% $price %>"></td>
+  </tr>
+</table>
+% if ($action eq 'modprod') {
+<input type="submit" value="Modify">
+% } else {
+<input type="submit" value="Add">
+% }
+&nbsp;&nbsp;&nbsp;<input type="reset">
+<input type="hidden" name="action" value="<% $action %>">
+</form>
+% }
+
+<%args>
+    $action => ''
+    $prodid => ''
+</%args>
+
+<%init>
+use DBI;
+
+my $manid       = '';
+my $name        = '';
+my $category    = '';
+my $description = '';
+my $price       = '';
+
+# first things first, if we are not modifying a manufacturer,
+# then we don't need a manufacturer id
+if ($action ne 'modprod') {
+    $prodid = '';
+}
+
+my $result = '';
+unless ($result = check_prod_id($prodid, $action)) {
+    if ($prodid) {
+        # we have a prodid, so query the database
+        my $dbh = DBI->connect('DBI:mysql:product_database',
+                               'apache','LampIsCool');
+        my $cursor = $dbh->prepare('SELECT man_id, name, category, 
+                                           description, price 
+                                    FROM products
+                                    WHERE prod_id = ?');
+        $cursor->execute($prodid);
+
+        ($manid,$name,$category,$description,$price) = $cursor->fetchrow;
+    }
+}
+</%init>
+
+<%once>
+# define a function to make sure our prodid is well formed
+sub check_prod_id {
+    my $prodid  = shift;
+    my $action = shift;
+
+    if ($prodid) {
+        if (length($prodid) <= 4 and $prodid =~ /^\w+/) {
+            # all is well, return an empty string
+            return '';
+        } else {
+            return 'Product ID is not properly formatted as up to 4 word characters.';
+        }
+    } elsif ($action eq 'modprod') {
+        return 'Please go back and enter a product id to modify.';
+    } else {
+        # all is well, return an empty string
+        return '';
+    }
+}
+</%once>

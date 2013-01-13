@@ -1,0 +1,94 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+if (@_ % 2 == 0) { %ARGS = @_ } else { die "Odd number of parameters passed to component expecting name/value pairs" }
+my $title = (!exists $ARGS{'title'} ?  '' : $ARGS{'title'});
+my $breadcrumb = (!exists $ARGS{'breadcrumb'} ?  '' : $ARGS{'breadcrumb'});
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+
+    # get the bread crumb string and split it on the colon
+    my @crumbs = split /:/, $breadcrumb;
+
+    # build the bread crumb string - grab each pair of URI/text,
+    # build the link
+    my $bread_crumb_text = '';
+    while (@crumbs > 1) {
+        my $href = shift(@crumbs);
+        my $text = shift(@crumbs);
+        $bread_crumb_text .= "<a href=\"$href\"><font color=\"#999966\"><b>$text</b></font></a> - ";
+    }
+
+    # add the last text in the bread crumb string
+    $bread_crumb_text .= $crumbs[0];
+
+$_out->('<html>
+<head>
+<title>Open Source Web Book | Content | HTML::Mason | ');
+$_out->( $title );
+$_out->('</title>
+</head>
+<body bgcolor="#FFFFFF" text="#333333" leftmargin="0" topmargin="0"
+marginwidth="0" marginheight="0" link="#333333">
+<table width="780" border="0" cellspacing="0" cellpadding="0" summary="">
+<tr>
+<td bgcolor="#000000" colspan="3" align="center"><font color="#FFFFFF">
+www.opensourcewebbook.com
+</font></td>
+</tr>
+<tr>
+<td bgcolor="#999966" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td width="15">&nbsp;</td>
+<td width="180">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width="780" border="0" cellspacing="0" cellpadding="0" summary="">
+<tr>
+<td width="15">&nbsp;</td>
+<td width="570">
+<font color="#FF0000"><b>Page Path - </b></font>
+');
+$_out->( $bread_crumb_text );
+$_out->('
+&nbsp;
+</td>
+<td width="195">
+<div align="center"><a href="../../"><img src="/icons/logo.gif"
+width="177" height="51" border="0" alt=""></a></div>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+');
+$_out->('
+');
+return undef;
+
+},
+'create_time'=>1035412156,
+'declared_args'=> {
+          '$title' => {
+                        'default' => ' \'\''
+                      },
+          '$breadcrumb' => {
+                             'default' => ' \'\''
+                           }
+        },
+'object_size'=>2279,
+'parser_version'=>8
+)
+;

@@ -1,0 +1,10 @@
+#use wml::oswb title="Errata" page="Errata" rightrail="no"
+
+
+<p><red>Errata for <b>$(BOOK_TITLE)</b></red><br></p>
+
+<p>
+There are no known mistakes in <b>$(BOOK_TITLE)</b>.
+</p>
+
+

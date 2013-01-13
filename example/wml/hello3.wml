@@ -1,0 +1,25 @@
+#
+# use head3.wml, setting the background color to #ffffcc 
+#
+
+#use wml::head3 title="WML hello3.wml" bgcolor="#ffffcc"
+
+#
+# here is the body stuff
+#
+
+<h3>Body Stuff</h3>
+hello, world!<br>
+File: <b>__FILE__</b><br>
+Line: <b>__LINE__</b>
+
+# 
+# now it is the time for the footer
+#
+
+#use wml::foot3 author="Ron Ballard"
+
+__END__
+
+After the above marker, we can put any text in the file and it
+would be treated as a comment.

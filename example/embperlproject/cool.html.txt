@@ -1,0 +1,11 @@
+<h4>Why Open Source is Cool (in the file cool.html)</h4>
+
+<ul>
+<li>It is open, so you have all the code available - reading
+the code is a good way to spend a rainy day</li>
+<li>The programs are free</li>
+<li>The people involved in Open Source are cool, smart, and
+all around "good people"</li>
+<li>It is a movement bigger than any individual and more
+than the sum of its parts</li>
+</ul>

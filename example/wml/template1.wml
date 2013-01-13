@@ -1,0 +1,30 @@
+#
+# define the head of the template
+#
+<html>
+<head>
+<title>Our Template</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Welcome to www.opensourcewebbook.com!</h1>
+
+#
+# here we end the head, and add the body with
+# <<PAGE_BODY>>, then start the footer
+#
+<<PAGE_BODY>>
+
+<hr>
+Copyright 2002, <a href="/">www.opensourcewebbook.com</a>.
+<br>
+Comments are appreciated.  Please send them to our
+<a href="mailto:webmaster@opensourcewebbok.com">webmaster</a>.
+
+#
+# the following is added to say "whatever follows is to be
+# dumped into where we say <<PAGE_BODY>>", which is above,
+# so all the following text is slurped into the PAGE_BODY
+# section, and the following text comes from the file that
+# uses or includes this one
+#
+..PAGE_BODY>>

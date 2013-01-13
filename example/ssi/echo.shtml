@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Server Side Includes: echo Directive</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Examples of the echo directive</h1>
+Filename: <b><!--#echo var="DOCUMENT_NAME"--></b>
+<br>
+URI: <b><!--#echo var="DOCUMENT_URI"--></b>
+<br>
+Local time: <b><!--#echo var="DATE_LOCAL"--></b>
+<br>
+GMT: <b><!--#echo var="DATE_GMT"--></b>
+<br>
+Last modified: <b><!--#echo var="LAST_MODIFIED"--></b>
+</body>
+</html>

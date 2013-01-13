@@ -1,0 +1,5 @@
+<!--#include file="header.html"-->
+
+Here is the stuff between what was included.
+
+<!--#include file="footer.shtml"-->

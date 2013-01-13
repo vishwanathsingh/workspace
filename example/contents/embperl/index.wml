@@ -1,0 +1,118 @@
+#use wml::oswb title="Content | HTML::Embperl" page="/contents/:Contents:Embperl"
+
+<p><red>HTML::Embperl</red><br></p>
+<p>
+HTML::Embperl (aka Embperl) is a Perl module that allows the 
+execution of server-side programming code by embedding Perl
+code into HTML files.  Embperl, written and maintained by Gerald
+Richter, can be found at
+<link href="http://perl.apache.org/embperl/"
+      text="perl.apache.org/embperl/">.
+</p>
+<p>A powerful feature of Embperl is that it is hooked into
+<link href="/contents/mod_perl/" text="mod_perl">.  Most mod_perl
+features apply to Embperl, so if you know mod_perl, you need only
+a bit more to use Embperl.  As in mod_perl, the code in the page
+compiled only the first time it is called (or when the file is 
+modified), as is the case with Apache::Request programs with mod_perl.
+</p>
+<p>The result of the compilation is cached so that the next time the
+page is requested, the Perl code does not need to be recompiled.  It
+is the Perl code compilation that is cached, <i>not</i> the generated
+HTML code.  This meas that the next time the page is requested, the
+Perl code reexecutes (but does not recompile) to generate the HTML for
+that request.  If the HTML file is modified, a recompile is forced,
+but that is a Good Thing because we want the changes to take effect. 
+After the recompile, the Perl code is again cached.  This makes for
+efficient execution.  Also, as in mod_perl, the internals of Apache
+are available to use if we want them, so Embperl can hook into Apache's
+different phases (such as authentication and logging) if the 
+application warrants it.</p>
+<p>Embperl is basically Perl code - and you know how we feel about Perl.
+You can write Perl server-side programs embedded within HTML files.
+Mmmmm, Perl...</p>
+
+<p><red>Embperl Links</red></p>
+<p>
+<link href="http://perl.apache.org/embperl/" text="Embperl home page"><br>
+<link href="http://www.ecos.de/embperl/" text="Embperl German home page">
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p><red>index.html:</red><br>
+<link href="$(ROOT)/embperl/"               text="index.html"><br>
+<link href="$(ROOT)/embperl/index.html.txt" text="index.html contents">
+</p>
+<p><red>link.html:</red><br>
+<link href="$(ROOT)/embperl/link.html"     text="link.html"><br>
+<link href="$(ROOT)/embperl/link.html.txt" text="link.html contents">
+</p>
+<p><red>if statement:</red><br>
+<link href="$(ROOT)/embperl/if.html"     text="if.html"><br>
+<link href="$(ROOT)/embperl/if.html.txt" text="if.html contents">
+</p>
+<p><red>while loop:</red><br>
+<link href="$(ROOT)/embperl/while.html"     text="while.html"><br>
+<link href="$(ROOT)/embperl/while.html.txt" text="while.html contents">
+</p>
+<p><red>foreach loop:</red><br>
+<link href="$(ROOT)/embperl/foreach.html"     text="foreach.html"><br>
+<link href="$(ROOT)/embperl/foreach.html.txt" text="foreach.html contents">
+</p>
+<p><red>posted data with %fdat:</red><br>
+<link href="$(ROOT)/embperl/fdat1.html"     text="fdat1.html"><br>
+<link href="$(ROOT)/embperl/fdat1.html.txt" text="fdat1.html contents"><br>
+<link href="$(ROOT)/embperl/fdat2.html.txt" text="fdat2.html contents"><br><br>
+</p>
+<p><red>magic $row and $col:</red><br>
+<link href="$(ROOT)/embperl/rowcol.html"     text="rowcol.html"><br>
+<link href="$(ROOT)/embperl/rowcol.html.txt" text="rowcol.html contents"><br><br>
+</p>
+<p>
+<red>HTML::Embperl Project</red>
+</p>
+<p><red>take1.html:</red><br>
+<link href="$(ROOT)/embperl/take1.html"          text="take1.html"><br>
+<link href="$(ROOT)/embperl/take1.html.txt"      text="take1.html contents"><br>
+<link href="$(ROOT)/embperl/embperl_template.pl" text="embperl_template.pl">
+</p>
+<p><red>/embperlproject/:</red><br>
+<link href="$(ROOT)/embperlproject/"               text="/embperlproject/"><br>
+<link href="$(ROOT)/embperlproject/base.html.txt"  text="base.html contents"><br>
+<link href="$(ROOT)/embperlproject/index.html.txt" text="index.html contents">
+</p>
+<p><red>cool.html:</red><br>
+<link href="$(ROOT)/embperlproject/cool.html"     text="cool.html"><br>
+<link href="$(ROOT)/embperlproject/cool.html.txt" text="cool.html contents">
+</p>
+<p><red>sub1:</red><br>
+<link href="$(ROOT)/embperlproject/sub1/"               text="/embperlproject/sub1/"><br>
+<link href="$(ROOT)/embperlproject/sub1/index.html.txt" text="index.html contents">
+</p>
+<p><red>sub2:</red><br>
+<link href="$(ROOT)/embperlproject/sub2/"                text="/embperlproject/sub2/"><br>
+<link href="$(ROOT)/embperlproject/sub2/base.html.txt"   text="base.html contents"><br>
+<link href="$(ROOT)/embperlproject/sub2/bottom.html.txt" text="bottom.html contents"><br>
+<link href="$(ROOT)/embperlproject/sub2/index.html.txt"  text="index.html contents">
+</p>
+<p><red>sub3:</red><br>
+<link href="$(ROOT)/embperlproject/sub3/"                  text="/embperlproject/sub3/"><br>
+<link href="$(ROOT)/embperlproject/sub3/base.html.txt"     text="base.html contents"><br>
+<link href="$(ROOT)/embperlproject/sub3/index.html.txt"    text="index.html contents"><br>
+<link href="$(ROOT)/embperlproject/sub3/newtitle.html"     text="newtitle.html"><br>
+<link href="$(ROOT)/embperlproject/sub3/newtitle.html.txt" text="newtitle.html contents">
+</p>
+<p><red>product_database.sql:</red><br>
+<link href="$(ROOT)/embperlproject/product_database.sql" text="product_database.sql"><br>
+</p>
+<p><red>productfilter:</red><br>
+<link href="$(ROOT)/embperlproject/productfilter/"                             text="/productfilter/"><br>
+<link href="$(ROOT)/embperlproject/productfilter/base.html.txt"                text="base.html contents"><br>
+<link href="$(ROOT)/embperlproject/productfilter/index.html.txt"               text="index.html contents"><br>
+<link href="$(ROOT)/embperlproject/productfilter/productdetail/?prod_id=C101"               text="/productfilter/productdetail/"><br>
+<link href="$(ROOT)/embperlproject/productfilter/productdetail/index.html.txt" text="index.html contents"><br>
+</p>
+</divert>

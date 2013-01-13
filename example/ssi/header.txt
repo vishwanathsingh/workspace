@@ -1,0 +1,6 @@
+<html>
+<head>
+<title>Server Side Includes: include Directive</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>You are at www.opensourcewebbook.com</h1>

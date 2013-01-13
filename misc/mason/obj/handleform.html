@@ -1,0 +1,72 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+if (@_ % 2 == 0) { %ARGS = @_ } else { die "Odd number of parameters passed to component expecting name/value pairs" }
+my $name = (!exists $ARGS{'name'} ?  die "no value sent for required parameter 'name'" : $ARGS{'name'});
+my $address = (!exists $ARGS{'address'} ?  die "no value sent for required parameter 'address'" : $ARGS{'address'});
+my $city = (!exists $ARGS{'city'} ?  die "no value sent for required parameter 'city'" : $ARGS{'city'});
+my $state = (!exists $ARGS{'state'} ?  die "no value sent for required parameter 'state'" : $ARGS{'state'});
+my $zip = (!exists $ARGS{'zip'} ?  die "no value sent for required parameter 'zip'" : $ARGS{'zip'});
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$_out->('<html>
+<head>
+<title>Mason Form Handling Example</title>
+</head>
+<body bgcolor="#ffffff">
+
+<h3>Mason Form Handling Example</h3>
+
+You entered the following in the form:
+
+<br><br>
+Name: <b>');
+$_out->( $name );
+$_out->('</b> <br>
+Address: <b>');
+$_out->( $address );
+$_out->('</b> <br>
+City: <b>');
+$_out->( $city );
+$_out->('</b> <br>
+State: <b>');
+$_out->( $state );
+$_out->('</b> <br>
+Zip: <b>');
+$_out->( $zip );
+$_out->('</b> <br>
+</body>
+</html>
+
+');
+return undef;
+
+},
+'create_time'=>1035411788,
+'declared_args'=> {
+          '$state' => {
+                        'default' => undef
+                      },
+          '$city' => {
+                       'default' => undef
+                     },
+          '$zip' => {
+                      'default' => undef
+                    },
+          '$address' => {
+                          'default' => undef
+                        },
+          '$name' => {
+                       'default' => undef
+                     }
+        },
+'object_size'=>1834,
+'parser_version'=>8
+)
+;

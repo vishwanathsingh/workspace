@@ -1,0 +1,92 @@
+#use wml::oswb title="Content | HTML::Mason" page="/contents/:Contents:Mason"
+
+<p><red>HTML::Mason</red><br></p>
+<p>
+HTML::Mason (aka Mason - see <link href="http://www.masonhq.com/"
+text="www.masonhq.com/">) is a Perl module created by Jonathan Swartz.
+Its function is similar to Embperl: to include Perl code within an HTML
+page.  The following are some of the features of Mason.
+<ul>
+<li>Simple embedded Perl syntax - An HTML file can harness the power of
+Perl, including variables (scalar, arrays, hashes, and so on), complex 
+data types, and flow-control constructs.
+<li>Modular pages with components - Create subroutine-like code, known as
+components, to generate headers, footers, menus, and so on.
+<li>Parameter handling - It provides easy accesss to
+<tt>GET</tt>/<tt>POST</tt> parameters, including assigning default values
+and triggering error conditions.
+<li>Templates and filters - A template can be created and applied to the
+entire site or a portion of the site.
+<li>Object-oriented techniques - The power of Perl and its object-oriented
+features can be used.
+<li>Caching - When the code on a page or componenet is cached, the next
+time the page or component is requested, the cached version is executed.
+<li>Previewing - A built-in previewer can be used to review a page, using
+a number of client and request conditions.
+<li>Staging/production modes - Mason can be configured to use a staging
+server or staging area for development.
+</ul>
+</p>
+<p><red>Mason Links</red></p>
+<p><link href="http://www.masonhq.com/" text="Mason Headquarters">
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p><red>test.html:</red><br>
+<link href="$(ROOT)/mason/test.html"     text="test.html"><br>
+<link href="$(ROOT)/mason/test.html.txt" text="test.html contents">
+</p>
+<p><red>percent.html:</red><br>
+<link href="$(ROOT)/mason/percent.html"     text="percent.html"><br>
+<link href="$(ROOT)/mason/percent.html.txt" text="percent.html contents">
+</p>
+<p><red>cond.html:</red><br>
+<link href="$(ROOT)/mason/cond.html"     text="cond.html"><br>
+<link href="$(ROOT)/mason/cond.html.txt" text="cond.html contents">
+</p>
+<p><red>loop.html:</red><br>
+<link href="$(ROOT)/mason/loop.html"     text="loop.html"><br>
+<link href="$(ROOT)/mason/loop.html.txt" text="loop.html contents">
+</p>
+<p><red>perl.html:</red><br>
+<link href="$(ROOT)/mason/perl.html"     text="perl.html"><br>
+<link href="$(ROOT)/mason/perl.html.txt" text="perl.html contents"><br><br>
+</p>
+<p><red>handling form data:</red><br>
+<link href="$(ROOT)/mason/form.html"           text="form.html"><br>
+<link href="$(ROOT)/mason/form.html.txt"       text="form.html contents"><br>
+<link href="$(ROOT)/mason/handleform.html.txt" text="handleform.html contents">
+</p>
+<p><red>components part 1:</red><br>
+<link href="$(ROOT)/mason/components.html"     text="components.html"><br>
+<link href="$(ROOT)/mason/header"              text="_header"><br>
+<link href="$(ROOT)/mason/footer"              text="_footer"><br>
+<link href="$(ROOT)/mason/components.html.txt" text="components.html.txt">
+</p>
+<p><red>components part 2:</red><br>
+<link href="$(ROOT)/mason/components2.html"     text="components2.html"><br>
+<link href="$(ROOT)/mason/header2"              text="_header2"><br>
+<link href="$(ROOT)/mason/footer2"              text="_footer2"><br>
+<link href="$(ROOT)/mason/components2.html.txt" text="components2.html.txt">
+</p>
+<p><red>HTML::Mason Project</red>
+</p>
+<p><red>Product Backend:</red>
+<link href="$(ROOT)/mason/productbackend/"     text="/mason/productbackend/"><br>
+<link href="$(ROOT)/mason/productbackend/top"           text="_top"><br>
+<link href="$(ROOT)/mason/productbackend/leftrail"      text="_leftrail"><br>
+<link href="$(ROOT)/mason/productbackend/bottom"        text="_bottom"><br>
+<link href="$(ROOT)/mason/productbackend/bare.html"     text="bare.html"><br>
+<link href="$(ROOT)/mason/productbackend/bare.html.txt" text="bare.html contents"><br>
+<link href="$(ROOT)/mason/productbackend/select_form"   text="_select_form"><br>
+<link href="$(ROOT)/mason/productbackend/"              text="index.html"><br>
+<link href="$(ROOT)/mason/productbackend/index.html.txt" text="index.html contents"><br>
+<link href="$(ROOT)/mason/productbackend/continue/man_form"  text="_man_form"><br>
+<link href="$(ROOT)/mason/productbackend/continue/prod_form" text="_prod_form"><br>
+<link href="$(ROOT)/mason/productbackend/continue/index.html.txt" text="continue/index.html"><br>
+<link href="$(ROOT)/mason/productbackend/finished/index.html.txt" text="finished/index.html">
+</p>
+</divert>

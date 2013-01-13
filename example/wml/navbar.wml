@@ -1,0 +1,45 @@
+#use wml::des::navbar
+
+#
+# here is the navbar definition
+#
+
+<navbar:define name=navbar imgstar=":_on:_on" imgbase="/icons/" 
+               urlbase="/">
+  <navbar:header>This is the Header<br></navbar:header>
+
+  #   button epilog
+  <navbar:epilog><br></navbar:epilog>
+
+  #   the buttons 
+  <navbar:button id=about     url=about/     txt="About" 
+                 img=nv_about*.gif>
+  <navbar:button id=contents  url=contents/  txt="Contents" 
+                 img=nv_contents*.gif>
+  <navbar:button id=foreword  url=foreword/  txt="Foreword"
+                 img=nv_foreword*.gif>
+  <navbar:button id=reviews   url=reviews/   txt="Reviews"
+                 img=nv_reviews*.gif>
+  <navbar:button id=authors   url=authors/   txt="Authors"
+                 img=nv_authors*.gif>
+
+  #   bar footer
+  <navbar:footer>This is the Footer</navbar:footer>
+</navbar:define>
+
+#
+# here is the main stuff
+#
+
+<html>
+<head>
+<title>navbar example</title>
+<navbar:jsfuncs>
+</head>
+<body bgcolor="#ff0000" text="#ffffff">
+hello, world
+<hr>
+<navbar:render name=navbar>
+<hr>
+</body>
+</html>

@@ -1,0 +1,29 @@
+% my $client = $ENV{REMOTE_ADDR};
+
+<html>
+<head>
+<title>Percent Lines with Mason</title>
+</head>
+<body bgcolor="#ffffff">
+
+Hello <% $client %>!
+
+<hr>
+
+% if ($client =~ /127\.0\.0\.1/) {
+We are called from localhost.
+% } else {
+We are called from elsewhere.
+% }
+
+<hr>
+
+% my $i = 0;
+% while ($i < 10) {
+<tt>$i == <% $i %></tt>
+<br>
+%    $i++; 
+% }
+
+</body>
+</html>

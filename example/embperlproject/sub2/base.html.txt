@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>sub2 Template</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>sub2 Template</h1>
+
+This is the template for all files within 
+<i>/embperlproject/sub2</i>.  
+<hr>
+
+[- Execute ('*') -]
+
+<hr>
+Back to the template.  Hey, check it out, we are 
+including a footer file below!  Perhaps it contains
+HTML that will be the bottom of our page?
+
+[- Execute ('bottom.html') -]
+

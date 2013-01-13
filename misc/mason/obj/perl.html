@@ -1,0 +1,68 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$_out->('<html>
+<head>
+<title>Mason &lt;%perl&gt; Block</title>
+</head>
+<body bgcolor="#ffffff">
+
+');
+
+  # we can put arbitrary amounts of Perl
+  # code within these tags
+
+  # these tags can be embedded anywhere within the HTML
+
+  # remember that all variables must be my() variables
+
+  my $client = $ENV{REMOTE_ADDR};
+  my $agent  = $ENV{HTTP_USER_AGENT};
+  my $method = $ENV{REQUEST_METHOD};
+  my $time   = localtime();
+
+  # we can also include function definitions - this function
+  # is called in the HTML below
+
+  sub hello_world {
+      return "hello, world!"
+  }
+
+$_out->('
+
+Hello <b>');
+$_out->( $client );
+$_out->('</b>. <br>
+You are using <b>');
+$_out->( $agent );
+$_out->('</b>. <br>
+The local time is <b>');
+$_out->( $time );
+$_out->('</b>. <br>
+Your request method is <b>');
+$_out->( $method );
+$_out->('</b>. <br>
+A message: <b>');
+$_out->( hello_world() );
+$_out->('</b>.
+</table>
+</body>
+</html>
+');
+return undef;
+
+},
+'create_time'=>1035411772,
+'object_size'=>1208,
+'parser_version'=>8
+)
+;

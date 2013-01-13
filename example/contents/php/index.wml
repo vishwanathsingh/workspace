@@ -1,0 +1,103 @@
+#use wml::oswb title="Content | PHP" page="/contents/:Contents:PHP"
+
+<p><red>PHP</red><br></p>
+<p>
+PHP is one of the Ps in LAMP (<link href="/contents/perl/" text="Perl"> 
+and PHP).  Its function is similar to
+that of <link href="/contents/embperl/" text="HTML::Embperl"> and
+<link href="/contents/mason/" text="HTML::Mason"> - it uses executable
+code embedded in HTML to create dynamic web pages.  In the last chapter,
+we compared Embperl and Mason, and we saw that they are similar in
+purpose. Both can handle most any situation one would come across when
+developing a web site.  Whether one chooses PHP over Embperl or Mason is a
+matter of personal preference.  There are differences, and we try to point
+them out.  The choice is yours.  TMTOWTDI (not just with Perl, but with
+LAMP and Open Source in general).  Choice is good!
+</p>
+<p>
+PHP is another of those recursive initialisms beloved of a certain portion
+of the hacker community; it's short for PHP: Hypertext Preprocessor.  It
+was developed by Rasmus Lerdorf, Zeev Suraski, Andi Gutmans, and others.
+The first version was released in 1994; PHP is currently up to version
+4.1.1 (as of this writing), while the version released with Red Hat 7 is
+4.0.4.
+</p>
+<p>
+PHP has many built-in functions that perform important and common
+requests: It can connect to databases (many types, including 
+<link href="/contents/mysql/" text="MySQL">, which we cover here), send
+e-mail, create PDFs, and more.  PHP is widely used, and there are plenty
+of tutorials, examples, and help available on the Web.
+</p>
+
+<p><red>PHP Links</red></p>
+<p>
+<link href="http://www.php.net/" text="PHP home page"><br>
+<link href="http://www.phpbuilder.com/" text="PHP Builder"><br>
+<link href="http://www.phpwizard.net/" text="PHP Wizard"><br>
+<link href="http://www.php.net/manual/en/" text="online PHP manual">
+</p>
+
+<divert RIGHTRAIL>
+<p>
+<red>EXAMPLES:</red>
+</p>
+<p><red>hello.php:</red><br>
+<link href="$(ROOT)/php/hello.php"     text="hello.php"><br>
+<link href="$(ROOT)/php/hello.php.txt" text="hello.php contents"><br>
+</p>
+<p><red>phpinfo.php:</red><br>
+<link href="$(ROOT)/php/phpinfo.php"     text="phpinfo.php"><br>
+<link href="$(ROOT)/php/phpinfo.php.txt" text="phpinfo.php contents"><br>
+</p>
+<p><red>variables.php:</red><br>
+<link href="$(ROOT)/php/variables.php"     text="variables.php"><br>
+<link href="$(ROOT)/php/variables.php.txt" text="variables.php contents"><br>
+</p>
+<p><red>form data:</red><br>
+<link href="$(ROOT)/php/form1.html"    text="form1.html"><br>
+<link href="$(ROOT)/php/form1.php.txt" text="form1.php contents"><br>
+</p>
+<p><red>if.php:</red><br>
+<link href="$(ROOT)/php/if.php?age=39&name=John+Doe" text="if.php"><br>
+<link href="$(ROOT)/php/if.php.txt" text="if.php contents"><br>
+</p>
+<p><red>loops.php:</red><br>
+<link href="$(ROOT)/php/loops.php"     text="loops.php"><br>
+<link href="$(ROOT)/php/loops.php.txt" text="loops.php contents"><br>
+</p>
+<p><red>function1.php:</red><br>
+<link href="$(ROOT)/php/function1.php"     text="function1.php"><br>
+<link href="$(ROOT)/php/function1.php.txt" text="function1.php contents"><br>
+</p>
+<p><red>function2.php:</red><br>
+<link href="$(ROOT)/php/function2.php"     text="function2.php"><br>
+<link href="$(ROOT)/php/function2.php.txt" text="function2.php contents"><br>
+</p>
+<p><red>function3.php:</red><br>
+<link href="$(ROOT)/php/function3.php"     text="function3.php"><br>
+<link href="$(ROOT)/php/function3.php.txt" text="function3.php contents"><br>
+</p>
+<p><red>mysql1.php:</red><br>
+<link href="$(ROOT)/php/mysql1.php"     text="mysql1.php"><br>
+<link href="$(ROOT)/php/mysql1.php.txt" text="mysql1.php contents"><br>
+</p>
+<p><red>mysql2.php:</red><br>
+<link href="$(ROOT)/php/mysql2.php"     text="mysql2.php"><br>
+<link href="$(ROOT)/php/mysql2.php.txt" text="mysql2.php contents"><br>
+</p>
+<p><red>mysql3.php:</red><br>
+<link href="$(ROOT)/php/mysql3.php"     text="mysql3.php"><br>
+<link href="$(ROOT)/php/mysql3.php.txt" text="mysql3.php contents"><br>
+</p>
+<p><red>Project:</red><br>
+<link href="$(ROOT)/php/journal.sql"                text="journal.sql"><br>
+<link href="$(ROOT)/php/project/"                   text="launch page"><br>
+<link href="$(ROOT)/php/project/add/"               text="add page"><br>
+<link href="$(ROOT)/php/project/add/index.php.txt"  text="add page contents"><br>
+<link href="$(ROOT)/php/project/view/"              text="view page"><br>
+<link href="$(ROOT)/php/project/view/index.php.txt" text="view page contents"><br>
+<link href="$(ROOT)/php/project/view/entry?id=6"    text="view details page"><br>
+<link href="$(ROOT)/php/project/view/entry/index.php.txt" text="view details page contents"><br>
+</p>
+</divert>

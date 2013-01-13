@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Server Side Includes: fsize and flastmod Directives</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Examples of the fsize and flastmod directives</h1>
+The file <tt>echo.shtml</tt> was last modified
+<!--#flastmod file="echo.shtml"--> 
+<br>
+Its size is <!--#fsize file="echo.shtml"-->
+bytes.
+<br>
+<!--#config sizefmt="bytes"-->
+The size can also be displayed as
+<!--#fsize file="echo.shtml"--> bytes.
+</body>
+</html>

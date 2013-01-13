@@ -1,0 +1,25 @@
+#use "booklink"
+
+
+<define-tag book>
+<preserve isbn title author info pub comment>
+<set-var %attributes>
+
+   <tr>
+	<td valign="top"><amazon isbn=<get-var isbn> ><img border=0 src="/icons/books/<get-var isbn>.png"></amazon></td>
+	
+	<td valign="top"><b><get-var title></b><br>
+		by <get-var author><br>
+		<get-var info><br>
+		<get-var pub>; ISBN: <get-var isbn> <p>
+
+		<font size=-1><i><get-var comment></i></font>
+		<p>
+
+		<allbooks isbn=<get-var isbn> />
+	</td>
+   </tr>
+<restore isbn title author info pub comment>
+</define-tag>
+	
+

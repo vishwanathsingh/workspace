@@ -1,0 +1,9 @@
+..NAME>>John Doe<<..
+
+Hello <<NAME>>!
+<br>
+Here is my message:  <<MSG>>
+
+..MSG>>
+WML is cool!
+<<..

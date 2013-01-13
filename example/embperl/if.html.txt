@@ -1,0 +1,29 @@
+[-
+    # assign date the current date/time (as if we
+    # executed `date`)
+    $date = localtime();
+-]
+
+<html>
+<head>
+<title>Embperl if</title>
+</head>
+<body bgcolor="#ffffff">
+Today's date is: <b>[+$ date +]</b>.
+<hr>
+
+[# check to see if $date begins with `Mon' #]
+[# if so, it is Monday                     #]
+[$ if ($date =~ /^Mon/) $]
+  Today is <b>Monday</b>, so my condolences.
+[# check to see if $date begins with `Sat' #]
+[# or `Sun', if so, it is the weekend      #]
+[$ elsif ($date =~ /^(Sat|Sun)/) $]
+  Today is a <b>weekend day</b>, so take the day off!
+[# otherwise, just a normal work day       #]
+[$ else $]
+  Today is an <b>acceptable weekday</b>, so get some work done.
+[$ endif $]
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+[-
+    # grab the posted data from %fdat
+    $name  = $fdat{name}  || '';
+    $age   = $fdat{age}   || '';
+    $phone = $fdat{phone} || '';
+-]
+<html>
+<head>
+<title>Processing %fdat</title>
+</head>
+<body bgcolor="#ffffff">
+<h1>Processing %fdat</h1>
+
+[$ if ($name ne '' and $age ne '' and $phone ne '') $]
+    [# all the fields were filled out! #]
+
+Thank you for filling out the form!  You entered:
+<br>Name = <b>[+ $name +]</b>
+<br>Age = <b>[+ $age +]</b>
+<br>Phone = <b>[+ $phone +]</b>
+
+[$ else $]
+    [# uhoh, not all the fields were filled out #]
+
+Sorry, but you need to go back and fill out all the fields.
+
+[$ endif $]
+
+</body>
+</html>

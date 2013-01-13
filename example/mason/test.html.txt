@@ -1,0 +1,13 @@
+%  my $name = 'John Doe';
+
+<html>
+<head>
+<title>Mason Example</title>
+</head>
+<body bgcolor="#ffffff">
+
+Hello, <% $name %>!
+<br>2 + 3 = <% 2 + 3 %>
+
+</body>
+</html>

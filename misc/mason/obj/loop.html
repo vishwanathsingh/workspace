@@ -1,0 +1,74 @@
+package HTML::Mason::Commands;
+use strict;
+use vars qw($m $r);
+my $_escape = \&HTML::Mason::Parser::_escape_perl_expression;
+HTML::Mason::Component::FileBased->new
+(
+'code'=>sub {
+my %ARGS;
+{ local $^W; %ARGS = @_ unless (@_ % 2); }
+my $_out = $m->current_sink;
+$m->debug_hook($m->current_comp->path) if (%DB::);
+
+$_out->('<html>
+<head>
+<title>Mason Looping Constructs</title>
+</head>
+<body bgcolor="#ffffff">
+
+<h3><tt>while</tt> Loop</h3>
+
+<table border="1">
+  <tr><th>number</th><th>squared</td></tr>
+
+');
+ my $i = 1;
+ while ($i <= 5) {
+$_out->('    <tr><td>');
+$_out->( $i );
+$_out->('</td><td>');
+$_out->( $i ** 2 );
+$_out->('</td></tr>
+');
+   $i++;
+ }
+$_out->('
+</table>
+
+<h3><tt>for</tt> Loop</h3>
+
+');
+ for (my $j = 10; $j > 5; $j--) {
+$_out->('    $j = ');
+$_out->( $j );
+$_out->('<br>
+');
+ }
+$_out->('
+<h3><tt>foreach</tt> Loop</h3>
+
+<table border="1">
+  <tr><th>Variable</th><th>Value</th></tr>
+
+');
+ foreach my $var (sort keys %ENV) {
+$_out->('  <tr><td>');
+$_out->( $var );
+$_out->('</td><td>');
+$_out->( $ENV{$var} );
+$_out->('</td></tr>
+');
+ }
+$_out->('
+</table>
+</body>
+</html>
+');
+return undef;
+
+},
+'create_time'=>1035411769,
+'object_size'=>1075,
+'parser_version'=>8
+)
+;

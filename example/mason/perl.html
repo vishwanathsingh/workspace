@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Mason &lt;%perl&gt; Block</title>
+</head>
+<body bgcolor="#ffffff">
+
+<%perl>
+  # we can put arbitrary amounts of Perl
+  # code within these tags
+
+  # these tags can be embedded anywhere within the HTML
+
+  # remember that all variables must be my() variables
+
+  my $client = $ENV{REMOTE_ADDR};
+  my $agent  = $ENV{HTTP_USER_AGENT};
+  my $method = $ENV{REQUEST_METHOD};
+  my $time   = localtime();
+
+  # we can also include function definitions - this function
+  # is called in the HTML below
+
+  sub hello_world {
+      return "hello, world!"
+  }
+</%perl>
+
+Hello <b><% $client %></b>. <br>
+You are using <b><% $agent %></b>. <br>
+The local time is <b><% $time %></b>. <br>
+Your request method is <b><% $method %></b>. <br>
+A message: <b><% hello_world() %></b>.
+</table>
+</body>
+</html>

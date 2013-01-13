@@ -1,0 +1,12 @@
+#use wml::fmt::xtable
+
+<xtable>
+  ((1,1))
+  first - header
+  (1,2) align=right
+  second - data
+  ((2,1))
+  third - header
+  (2,2)
+  fourth - data
+</xtable>

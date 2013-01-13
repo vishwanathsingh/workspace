@@ -1,0 +1,8 @@
+<hr>
+<h3>Footer Stuff</h3>
+Written by:        <b>$(author)</b>
+<br>
+File: <b>__FILE__</b><br>
+Line: <b>__LINE__</b>
+</body>
+</html>
