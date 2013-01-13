@@ -32,7 +32,7 @@ print header,
 		   -bgcolour => '#ffffff'),
 	h1('Royal Residence'),
 	start_form(),
-	textfield(-name=>'Firstname',
+	textfield(-name=>'FirstName',
 		-maxlength=>255),
 	br(),
 	textfield(-name=>'LastName',
@@ -53,16 +53,16 @@ print header,
 
 sub insertValue{
 $dbh=connectDB();
-my $sth=$dbh->prepare('inset into'.$_[1].' values ( ? , ? ,? , ?, ?)');
-$sth->execute($_[0],$_[1],$_[3],$_[4]);
+my $sth=$dbh->prepare('insert into '.$_[0].' values ( ? , ? ,? , ?, ?)');
+$sth->execute($_[1],$_[2],$_[3],$_[4],$_[5]);
 }
 
 
 #showTables('Persons');
 form();
 if(param){
-my $name= param('field_name');
-print "Hi ".$name." !";	
+#print param;
+insertValue('Persons',0,param('FirstName'),param('LastName'),param('Address'),param('City'));
 }
 
 
